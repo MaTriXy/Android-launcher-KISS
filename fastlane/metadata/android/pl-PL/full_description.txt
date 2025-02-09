@@ -1,0 +1,20 @@
+Uruchom programy z ekranu startowego wpisując parę liter.
+
+Aplikacja dostosowuje się do tego ją używasz, w ten sposób znajdziesz co chcesz szybciej. Twoje dane nigdy nie opuszczają twojego urządzenia i możesz oczekiwać oszczędzania baterii i przyspieszenia urządzenia w porównaniu do skomplikowanych i rozbudowanych programów startowych.
+KISS to tylko 250 KB i nigdy przesyła danych.
+
+-------------------------
+<strong>93% użytkowników, którzy wypróbowali KISS przez tydzień, po 3 latach nadal są aktywnymi uzytkownikami.</strong>
+-------------------------
+
+Licencja GPLv3+ wolnego oprogramowania oznacza, że możesz używać, przeglądać, zmieniać i udostępniać kiedy i komu chcesz.
+
+-------------------------
+<a href="https://github.com/Neamar/KISS">GitHub</a>.
+
+Pomoc, dostosowywanie i zrzuty ekranu.
+<a href="https://help.kisslauncher.com">Website</a>.
+
+* Użyteczna prywatność
+* Szybkość i prostota
+* Pięknie funkcjonalna

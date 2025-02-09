@@ -1,23 +1,26 @@
 package fr.neamar.kiss.dataprovider;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import fr.neamar.kiss.pojo.Pojo;
+import fr.neamar.kiss.searcher.Searcher;
 
 /**
  * Public interface exposed by every KISS data provider
  */
-public interface IProvider {
+public interface IProvider<T extends Pojo> {
+
     /**
-     * Synchronously retrieve list of search results for the given query string
+     * Post search results for the given query string to the searcher
      *
-     * @param s Some string query (usually provided by an user)
+     * @param s        Some string query (usually provided by an user)
+     * @param searcher The receiver of results
      */
-    ArrayList<Pojo> getResults(String s);
+    void requestResults(String s, Searcher searcher);
 
     /**
      * Reload the data stored in this provider
-     *
+     * <p>
      * `"fr.neamar.summon.LOAD_OVER"` will be emitted once the reload is complete. The data provider
      * will stay usable (using it's old data) during the reload.
      */
@@ -25,7 +28,7 @@ public interface IProvider {
 
     /**
      * Indicate whether this provider has already loaded it's data
-     *
+     * <p>
      * If this method returns `false` then the client may listen for the
      * `"fr.neamar.summon.LOAD_OVER"` intent for notification of when the provider is ready.
      *
@@ -49,5 +52,12 @@ public interface IProvider {
      * @param id id we're looking for
      * @return null if not found
      */
-    Pojo findById(String id);
+    T findById(String id);
+
+    /**
+     * Get a list of all pojos, do not modify this list!
+     *
+     * @return
+     */
+    List<T> getPojos();
 }

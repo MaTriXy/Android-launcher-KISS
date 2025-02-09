@@ -9,6 +9,8 @@ import android.widget.ListView;
  * ListView subclass that provides an interface for (temporarily) blocking all of it's input events
  */
 public class BlockableListView extends ListView {
+    private boolean touchEventsBlocked = false;
+
     public BlockableListView(Context context) {
         super(context);
     }
@@ -21,11 +23,9 @@ public class BlockableListView extends ListView {
         super(context, attrs, defStyleAttr);
     }
 
-    private boolean touchEventsBlocked = false;
-
     /**
      * Prevent this ListView from receiving any new touch events
-     *
+     * <p>
      * Use {@link #unblockTouchEvents()} to end the blockage.
      */
     public void blockTouchEvents() {
@@ -42,5 +42,10 @@ public class BlockableListView extends ListView {
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return this.touchEventsBlocked || super.onTouchEvent(ev);
+    }
+
+    @Override
+    public boolean performClick() {
+        return this.touchEventsBlocked || super.performClick();
     }
 }

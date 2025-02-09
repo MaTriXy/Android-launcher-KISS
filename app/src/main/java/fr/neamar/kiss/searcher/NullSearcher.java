@@ -1,10 +1,6 @@
 package fr.neamar.kiss.searcher;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import fr.neamar.kiss.MainActivity;
-import fr.neamar.kiss.pojo.Pojo;
 
 /**
  * Retrieve pojos from history
@@ -12,11 +8,18 @@ import fr.neamar.kiss.pojo.Pojo;
 public class NullSearcher extends Searcher {
 
     public NullSearcher(MainActivity activity) {
-        super(activity, "<null>");
+        super(activity, "<null>", false);
     }
 
     @Override
-    protected List<Pojo> doInBackground(Void... voids) {
-        return new ArrayList<>();
+    protected void displayActivityLoader() {
+        // Don't display the loader for the NullSearcher
+        // (otherwise, pressing home again in minimalistic mode displays the loader for no reason)
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        // nothing found ;)
+        return null;
     }
 }

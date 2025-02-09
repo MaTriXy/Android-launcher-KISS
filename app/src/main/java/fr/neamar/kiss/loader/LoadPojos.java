@@ -3,25 +3,26 @@ package fr.neamar.kiss.loader;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
+import java.util.List;
 
 import fr.neamar.kiss.dataprovider.Provider;
 import fr.neamar.kiss.pojo.Pojo;
 
-public abstract class LoadPojos<T extends Pojo> extends AsyncTask<Void, Void, ArrayList<T>> {
+public abstract class LoadPojos<T extends Pojo> extends AsyncTask<Void, Void, List<T>> {
 
-    final Context context;
+    final WeakReference<Context> context;
     String pojoScheme = "(none)://";
-    private Provider<T> provider;
+    private WeakReference<Provider<T>> providerReference;
 
     LoadPojos(Context context, String pojoScheme) {
         super();
-        this.context = context;
+        this.context = new WeakReference<>(context);
         this.pojoScheme = pojoScheme;
     }
 
     public void setProvider(Provider<T> provider) {
-        this.provider = provider;
+        this.providerReference = new WeakReference<>(provider);
     }
 
     public String getPojoScheme() {
@@ -29,9 +30,14 @@ public abstract class LoadPojos<T extends Pojo> extends AsyncTask<Void, Void, Ar
     }
 
     @Override
-    protected void onPostExecute(ArrayList<T> result) {
+    protected void onPostExecute(List<T> result) {
         super.onPostExecute(result);
-        provider.loadOver(result);
+        if (providerReference != null) {
+            Provider<T> provider = providerReference.get();
+            if (provider != null && !isCancelled()) {
+                provider.loadOver(result);
+            }
+        }
     }
 
 }

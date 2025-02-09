@@ -117,4 +117,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-app/release/output.json
+
+#########
+# Docs  #
+#########
+docs/_site
+
+fastlane/Appfile
+fastlane/report.xml
+app/release/

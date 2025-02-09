@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="PopupAnimationTop" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/popup_in_top</item>
         <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
+
     <style name="PopupAnimationBottom" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/popup_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
+
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="ResultItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/resultHeight</item>
+        <item name="android:paddingStart">@dimen/result_margin_left</item>
+        <item name="android:paddingLeft">@dimen/result_margin_left</item>
+        <item name="android:paddingTop">@dimen/result_margin_top</item>
+        <item name="android:paddingEnd">@dimen/result_margin_right</item>
+        <item name="android:paddingRight">@dimen/result_margin_right</item>
+        <item name="android:paddingBottom">@dimen/result_margin_bottom</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ResultItemIcon">
+        <item name="android:layout_width">?attr/resultIconSize</item>
+        <item name="android:layout_height">?attr/resultIconSize</item>
+        <item name="android:layout_marginStart">@dimen/icon_margin_left</item>
+        <item name="android:layout_marginLeft">@dimen/icon_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/icon_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/icon_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/icon_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/icon_margin_bottom</item>
+    </style>
+
 </resources>

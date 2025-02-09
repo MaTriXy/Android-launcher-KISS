@@ -1,0 +1,3 @@
+* Tuki sovelluksen pikanäppäimille :) (@alenjularic)
+* Lisää tunniste suosikkeihin (@TBog)
+* Hakupalvelun parannuksia (@amkcpu)

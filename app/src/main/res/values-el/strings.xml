@@ -1,205 +1,305 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">KISS launcher</string>
     <string name="activity_setting">Ρυθμίσεις KISS</string>
     <string name="ui_search_hint">Αναζήτηση εφαρμογών, επαφών…</string>
-    <string name="ui_item_search">%1$s Αναζήτηση “%2$s”</string>
-    <string name="ui_item_phone">Κλήση “%s”</string>
+    <string name="ui_item_search">Αναζήτηση %1$s για «%2$s»</string>
+    <string name="ui_item_phone">Κλήση «%s»</string>
     <string name="ui_item_contact_hint_message">Μήνυμα</string>
     <string name="ui_item_contact_hint_call">Κλήση</string>
-
-    <string name="title_ui">Διεπαφή Χρήστη</string>
-    <string name="title_history">Επιλογές Ιστορικού</string>
-    <string name="title_providers">Επιλογή Πηγών</string>
-    <string name="menu_settings">Ρυθμίσεις Συσκευής</string>
-    <string name="no_favorites">Δεν υπάρχουν αγαπημένα. Προσθέστε μέσω του μενού.</string>
-
-    <string name="ui_empty_1_sub">Εφαρμογές, επαφές, ρυθμίσεις, …</string>
+    <string name="title_ui">Διεπαφή χρήστη</string>
+    <string name="title_history">Ρυθμίσεις ιστορικού</string>
+    <string name="title_providers">Ρυθμίσεις αναζήτησης</string>
+    <string name="menu_settings">Ρυθμίσεις συσκευής…</string>
+    <string name="ui_empty_1_sub">Εφαρμογές, επαφές, ρυθμίσεις…</string>
     <string name="ui_empty_2_sub">Για γρήγορη πρόσβαση</string>
     <string name="contacts_name">Επαφές</string>
-
     <string name="ui_empty_3">Γρήγορη πρόσβαση στις αγαπημένες σας εφαρμογές</string>
-    <string name="ui_empty_3_sub">το KISS μαθαίνει από τις συνήθειές σου</string>
-
-    <string name="search_name">Αναζήτηση στο Web</string>
-
-    <string name="settings_name">Ρυθμίσεις Συσκευής</string>
-
-    <string name="phone_name">Αριθμοί τηλεφώνου</string>
+    <string name="ui_empty_3_sub">Το KISS μαθαίνει από τις συνήθειές σας</string>
+    <string name="search_name">Μηχανές αναζήτησης</string>
+    <string name="settings_name">Ρυθμίσεις συσκευής</string>
     <string name="main_menu">Μενού</string>
     <string name="main_clear">Καθαρισμός πεδίου αναζήτησης</string>
-    <string name="main_kiss">Εμφάνιση αγαπημένων και λίστας εφαρμογών</string>
+    <string name="main_kiss">Εμφάνιση καταλόγου εφαρμογών</string>
     <string name="main_kiss_back">Εμφάνιση ιστορικού</string>
     <string name="keyboard_name">Εμφάνιση πληκτρολογίου με την έναρξη</string>
-
-    <string name="alias_web">διαδίκτυο, ιστός, περιηγητής</string>
+    <string name="alias_web">Διαδίκτυο, ιστός, περιηγητής</string>
     <string name="settings_applications">Εφαρμογές</string>
     <string name="settings_battery">Μπαταρία</string>
-    <string name="toggle_wifi">Ασύρματο δίκτυο</string>
-    <string name="toggle_bluetooth">Bluetooth</string>
-    <string name="toggle_silent">Σίγαση</string>
-    <string name="toggle_data">Δεδομένα δικτύου</string>
     <string name="application_not_found">Όπα, δεν ανοίγει η εφαρμογή.</string>
     <string name="menu_app_details">Πληροφορίες εφαρμογής</string>
     <string name="menu_app_uninstall">Απεγκατάσταση</string>
-
-    <string name="toast_hibernate_completed">%s αδρανοποιήθηκε επιτυχώς, επανέναρξη για ενεργοποίηση.</string>
+    <string name="toast_hibernate_completed">Το %s αδρανοποιήθηκε, επανέναρξη για ενεργοποίηση.</string>
     <string name="theme_name">Θέματα</string>
-
-    <string name="toggles_name">Διακόπτες (Wi-Fi, Bluetooth, …)</string>
-
-    <string name="reset_name">Διαγραφή ιστορικού KISS</string>
+    <string name="reset_name">Διαγραφή ιστορικού</string>
     <string name="title_advanced">Ρυθμίσεις για προχωρημένους</string>
-    <string name="ui_empty_1">Αναζητήστε κάτι</string>
-    <string name="root_mode_name">Λειτουργία υπερχρήστη</string>
+    <string name="ui_empty_1">Ξεκινήστε αναζήτηση για οτιδήποτε</string>
+    <string name="root_mode_name">Λειτουργία υπερχρήστη (root)</string>
     <string name="alias_contacts">επαφές,άνθρωποι,σχέσεις</string>
-    <string name="alias_mail">μαιλ,εμαιλ</string>
+    <string name="alias_mail">μαιλ,εμαιλ,mail</string>
     <string name="alias_market">αγορά,κατάστημα,κέντρο εφαρμογών</string>
     <string name="alias_clock">ρολόι,ξυπνητήρι,χρονόμετρο,αντίστροφη μέτρηση</string>
     <string name="settings_prefix">"Ρύθμιση: "</string>
-    <string name="toggles_prefix">"Διακόπτης: "</string>
     <string name="settings_airplane">Λειτουργία πτήσης</string>
     <string name="settings_device_info">Πληροφορίες συσκευής</string>
     <string name="settings_connectivity">Συνδεσιμότητα</string>
-    <string name="toggle_torch">Φακός</string>
-    <string name="menu_wallpaper">Ενημέρωση ταπετσαρίας</string>
+    <string name="menu_wallpaper">Ενημέρωση ταπετσαρίας…</string>
     <string name="history_erased">Το ιστορικό διαγράφηκε.</string>
-
     <string name="removed_item">Αφαιρέθηκε</string>
     <string name="menu_remove">Αφαίρεση από το ιστορικό</string>
-    <string name="toast_hibernate_error">%s δεν αδρανοποιήθηκε επιτυχώς.</string>
+    <string name="toast_hibernate_error">Το %s δεν αδρανοποιήθηκε.</string>
     <string name="menu_contact_copy_phone">Αντιγραφή αριθμού</string>
-    <string name="ui_empty_2">Βλέπε πάντα το ιστορικό σου</string>
-    <string name="toggles_on">%s ενεργοποιήθηκε</string>
-    <string name="toggles_off">%s απενεργοποιήθηκε</string>
-
+    <string name="ui_empty_2">Δείτε πάντα το ιστορικό σας</string>
     <string name="shortcuts_name">Συντομεύσεις</string>
-
-    <string name="reset_excluded_apps_name">Διαγραφή της λίστας εξαιρουμένων εφαρμογών</string>
+    <string name="reset_excluded_apps_name">Επαναφορά καταλόγου εφαρμογών που εξαιρούνται από το KISS</string>
     <string name="reset_excluded_apps_warn">Θέλετε πραγματικά να διαγράψετε τη λίστα;</string>
     <string name="reset_warn">Θέλετε πραγματικά να διαγραψετε το ιστορικό σας;</string>
     <string name="reset_favorites_name">Διαγραφή τη λίστας αγαπημένων</string>
     <string name="reset_favorites_warn">Θέλετε πραγματικά να διαγράψετε τα αγαπημένα σας;</string>
-    <string name="history_hide_desc">Απόκρυψη ιστορικού και αρχικής οθόνης, ενεργοποίηση widgets</string>
+    <string name="history_hide_desc">Απόκρυψη ιστορικού και αρχικής οθόνης, ενεργοποίηση γραφικών στοιχείων</string>
     <string name="history_hide_name">Μινιμαλιστική διεπαφή</string>
     <string name="history_onclick_name">Εμφάνιση ιστορικού μέσω αφής</string>
     <string name="portrait_title">Εξαναγκασμός λειτουργίας πορτρέτου</string>
-    <string name="icons_hide_main">Απόκρυψη εικονιδίων εφαρμογών</string>
+    <string name="icons_hide_main">Απόκρυψη εικονιδίων</string>
     <string name="icons_hide_desc">Χρήσιμο σε αργές συσκευές</string>
     <string name="icons_pack_default_name">Εικονίδια συστήματος</string>
-
     <string name="settings_nfc">NFC</string>
-    <string name="toggle_sync">Συγχρονισμός</string>
-    <string name="toggle_autorotate">Αυτόματη περιστροφή</string>
     <string name="favorites_erased">Τα αγαπημένα διαγράφηκαν.</string>
     <string name="menu_favorites_add">Προσθήκη στα αγαπημένα</string>
     <string name="menu_app_hibernate">Αδρανοποίηση</string>
-
-    <string name="menu_phone_create">Δημιουργία επαφής</string>
-
+    <string name="menu_phone_create">Δημιουργία επαφής…</string>
     <string name="toast_favorites_added">%s προστέθηκε στα αγαπημένα</string>
-
-    <string name="order_apps_name">Ταξινόμηση λίστας εφαρμογών</string>
-    <string name="shortcut_added">Η συντόμευση προστέθηκε στο KISS.</string>
-
     <string name="root_mode_error">Αποτυχία απόκτησης δικαιωμάτων διαχειριστή.</string>
-
     <string name="excluded_app_list_added">Η εφαρμογή εξαιρέθηκε. Επαναφορά μέσω των ρυθμίσεων</string>
-
-    <string name="menu_exclude">Εξαίρεση εφαρμογής</string>
-    <string name="icons_pack_name">Θέματα εικονιδίων (ADW.Launcher θέματα)</string>
+    <string name="menu_exclude">Εξαίρεση εφαρμογής…</string>
+    <string name="icons_pack_name">Πακέτο εικονιδίου (ADW.Launcher θέμα)</string>
     <string name="excluded_app_list_erased">Η λίστα εξαιρούμενων εφαρμογών διαγράφηκε.</string>
-    <string name="enable_sms">Εμφάνιση εισερχόμενων SMS στο ιστορικό</string>
     <string name="enable_phone">Εμφάνιση εισερχόμενων κλήσεων στο ιστορικό</string>
     <string name="enable_app">Εμφάνιση πρόσφατα εγκατεστημένων εφαρμογών στο ιστορικό</string>
     <string name="restart_name">Επανεκκίνηση KISS</string>
-    <string name="restart_warn">Επιθυμείτε να επανεκκινήσετε την εφαρμογή; Αν το KISS δεν είναι ο προεπιλεγμένος launcher, η εφαρμογή απλώς θα τερματίσει.</string>
-
-    <string name="exclude_favorites">Απόκρυψη αγαπημένων από το ιστορικό</string>
-    <string name="favorites_hide">Απόκρυψη Γραμμής Αγαπημένων</string>
+    <string name="restart_warn">Επιθυμείτε να επανεκκινήσετε την εφαρμογή; Αν το KISS δεν είναι ο προεπιλεγμένος εκκινητής, η εφαρμογή απλώς θα τερματιστεί.</string>
+    <string name="exclude_favorites_history">Απόκρυψη αγαπημένων από το ιστορικό</string>
+    <string name="favorites_hide">Απόκρυψη γραμμής αγαπημένων</string>
     <string name="enable_favorites_bar">Εμφάνιση αγαπημένων πάνω από το πεδίο αναζήτησης</string>
     <string name="menu_shortcut_remove">Αφαίρεση συντόμευσης</string>
-
-    <string name="search_desc">Ενεργοποίηση αναζήτησης μέσω Google, Bing κτλ.</string>
-    <string name="ui_excluded_apps">Δείτε / τροποποιήστε τις εξαιρούμενες εφαρμογές</string>
-    <string name="ui_excluded_apps_dialog_title">Αποεπιλέξτε τις εφαρμογές που θα θέλατε να συμπεριλάβετε</string>
-    <string name="ui_excluded_apps_not_found">Καμία εφαρμογή δεν έχει εξαιρεθεί</string>
+    <string name="ui_excluded_apps">Εμφάνιση ή τροποποίηση των εξαιρουμένων εφαρμογών από το KISS</string>
+    <string name="ui_excluded_apps_dialog_title">Επιλέξτε τις εξαιρούμενες εφαρμογές</string>
     <string name="history_mode_name">Λειτουργία ιστορικού</string>
-    <string name="history_mode_desc">Επιλέξτε τον τρόπο που συμπληρώνεται το ιστορικό</string>
+    <string name="history_mode_desc">Επιλέξτε τον τρόπο που ταξινομείται το ιστορικό</string>
     <string name="freeze_history_warn">Είστε βέβαιοι ότι θέλετε να παγώσει το ιστορικό και να απενεργοποιήσετε όλες τις περαιτέρω ενημερώσεις; Το ιστορικό σας δε θα αλλάξει άλλο.</string>
-
     <string name="freeze_history_name">Πάγωμα ιστορικού</string>
-
     <string name="search_providers_title">Επιλέξτε μηχανές αναζήτησης</string>
-    <string name="root_mode_desc">Για αδρανοποίηση εφαρμογών</string>
-    <string name="settings_tethering">Tethering</string>
-<string name="keyboard_workaround_name">Διόρθωση προτάσεων πληκτρολογίου</string>
-    <string name="keyboard_workaround_desc">Παρεμπόδιση μη συμβατών πληκτρολογίων (όπως το SwiftKey™) να εμφανίζουν προτάσεις</string>
+    <string name="root_mode_desc">Αν διαθέσιμο, χρησιμοποιείστε το για αδρανοποίηση εφαρμογών</string>
+    <string name="settings_tethering">Σύνδεση</string>
     <string name="alias_phone">κλήση,τηλέφωνο</string>
     <string name="alias_messaging">μήνυμα,μνμ,sms,mms</string>
     <string name="settings_storage">Αποθήκευση</string>
     <string name="settings_dev">Επιλογές προγραμματιστή</string>
     <string name="settings_accessibility">Προσβασιμότητα</string>
-    <string name="restart_desc">Διόρθωση θεμάτων / νέων επαφών που δεν εμφανίζονται</string>
+    <string name="restart_desc">Διόρθωση θεμάτων και νέων επαφών που δεν εμφανίζονται</string>
     <string name="items_title">%d στοιχεία</string>
-    <string name="app_will_restart">Έχετε τροποποιήσει κάποιες σημαντικές ρυθμίσεις, η εφαρμογή θα επανεκκινήσει.</string>
     <string name="alternate_history_inputs">Τροποποιήστε τις πηγές του ιστορικού</string>
     <string name="keyboard_options">Επιλογές πληκτρολογίου</string>
     <string name="misc">Λοιπά</string>
-
-<string name="title_settings">Ρυθμίσεις</string>
-    <string name="stub_app_tag">Παράδειγμα ετικέτας</string>
     <string name="settings_sound">Ήχος και ένταση ήχου</string>
     <string name="settings_display">Οθόνη</string>
-    <string name="menu_tags_edit">Προσθήκη / επεξεργασία ετικετών</string>
+    <string name="menu_tags_edit">Προσθήκη ή επεξεργασία ετικετών</string>
     <string name="tags_add_title">Προσθέστε ετικέτες χωρισμένες με κενό</string>
-    <string name="tags_confirmation_added">Η ετικέτα ορίστηκε</string>
+    <string name="tags_confirmation_added">Οι ετικέτες ορίστηκαν</string>
     <string name="toast_favorites_removed">το %s καταργήθηκε από τα αγαπημένα</string>
     <string name="menu_favorites_remove">Κατάργηση από τα αγαπημένα</string>
-
-<string name="ui_item_visit">Επίσκεψη “%1$s”</string>
-
-    <string name="color_picker_default_title" msgid="1248663997452044787">"Επιλέξτε χρώμα"</string>
-    <string name="color_swatch_description" msgid="2883438431173736180">"Χρώμα <xliff:g id="COLOR_INDEX">%1$d</xliff:g>"</string>
-    <string name="color_swatch_description_selected" msgid="5020921249944943124">"Επιλέχτηκε το χρώμα <xliff:g id="COLOR_INDEX">%1$d</xliff:g>"</string>
-<string name="search_providers_delete">Διαγραφή μηχανών αναζήτησης</string>
-    <string name="custom_search_provider">Προσθήκη μηχανών αναζήτησης</string>
-    <string name="search_provider_reset">Αρχικοποίηση μηχανών αναζήτησης</string>
+    <string name="ui_item_visit">Επίσκεψη «%1$s»</string>
+    <string name="color_picker_default_title">Επιλέξτε χρώμα</string>
+    <string name="color_swatch_description">Χρώμα %1$d</string>
+    <string name="color_swatch_description_selected">Επιλέχτηκε το χρώμα %1$d</string>
+    <string name="search_providers_delete">Διαγραφή μηχανών αναζήτησης ιστού</string>
+    <string name="custom_search_provider">Προσθήκη μηχανών αναζήτησης ιστού</string>
+    <string name="search_provider_reset">Αρχικοποίηση μηχανών αναζήτησης ιστού</string>
     <string name="search_provider_reset_desc">Επιθυμείτε την αρχικοποίηση των μηχανών αναζήτησης;</string>
     <string name="search_provider_reset_done_desc">Οι μηχανές αναζήτησης αρχικοποιήθηκαν</string>
     <string name="search_provider_name">Όνομα μηχανής αναζήτησης</string>
     <string name="search_provider_added">Η μηχανή αναζήτησης προστέθηκε.</string>
     <string name="search_provider_deleted">Οι μηχανές αναζήτησης διαγράφηκαν.</string>
     <string name="search_provider_error_char">Παρακαλώ, μην χρησιμοποιείτε τον χαρακτήρα |</string>
-    <string name="search_provider_error_placeholder">Παρακαλώ, χρησιμοποιήστε {q} για να καθορίσετε την θέση του ερωτήματος</string>
+    <string name="search_provider_error_placeholder">Παρακαλώ, χρησιμοποιήστε %s για να καθορίσετε την θέση του ερωτήματος</string>
     <string name="search_provider_error_url">Παρακαλώ, χρησιμοποιήστε μία έγκυρη διεύθυνση</string>
     <string name="search_provider_error_exists">Υπάρχει ήδη μηχανή αναζήτησης με αυτό το όνομα</string>
-
-
     <string name="tags_visible">Εμφάνιση ετικετών εφαρμογών</string>
-    <string name="default_launcher_title">Αλλαγή προεπιλεγμένου Launcher</string>
-    <string name="default_launcher_warn">Μετά την επιλογή του βασικού launcher, θα μεταφερθείτε στην αρχική οθόνη του. Είστε σίγουρος οτι επιθυμείτε να συνεχίσετε;
+    <string name="default_launcher_title">Αλλαγή Προεπιλεγμένου Εκκινητή (Launcher)</string>
+    <string name="default_launcher_warn">Μετά την επιλογή του βασικού εκκινητή, θα μεταφερθείτε στην αρχική οθόνη του. Είστε σίγουρος οτι επιθυμείτε να συνεχίσετε;
 \n
-\nΣημείωση: Εάν δεν μπορείτε να δείτε την επιλογή \"Πάντα\", πιέστε το κουμπί Home αφού επιλέξετε τον επιθυμητό Launcher.</string>
-
-    <string name="share">Μοιραστείτε το στο...</string>
-    <string name="number_ofdisplay_items">Μέγιστος αριθμός αποτελεσμάτων αναζήτησης και ιστορικού</string>
-
+\nΣημείωση: Εάν δεν εμφανίζεται η επιλογή «Πάντα», πιέστε το κεντρικό κουμπί της συσκευής σας, αφού πρώτα επιλέξετε τον επιθυμητό εκκινητή.</string>
+    <string name="share">Μοιραστείτε το στο…</string>
+    <string name="number_of_display_items">Μέγιστος αριθμός αποτελεσμάτων αναζήτησης και ιστορικού</string>
     <string name="main_color">Βασικό χρώμα</string>
     <string name="notification_bar_color">Χρώμα μπάρας κοινοποίησης</string>
-
     <string name="color_transparent_dark">Διαφανές σκούρο</string>
     <string name="color_transparent_white">Διαφανές λευκό</string>
     <string name="color_transparent">Διαφανές</string>
-
-
-
     <string name="transparent_search_bar">Διαφανής μπάρα αναζήτησης</string>
     <string name="transparent_favorites_bar">Διαφανής γραμμή αγαπημένων</string>
-
-    <string name="large_search_bar">Μεγάλο πεδίο αναζήτησης</string>
-    <string name="menu_widget_add">(BETA) Προσθήκη widget</string>
+    <string name="large_search_bar">Μεγαλύτερο πεδίο αναζήτησης</string>
+    <string name="menu_widget_add">Προσθήκη μικροεφαρμογής</string>
     <string name="menu_widget_remove">Αφαίρεση widget</string>
     <string name="rate_the_app">Αξιολογήστε την εφαρμογή</string>
-
+    <string name="lwp_touch">Στείλτε τα γεγονότα αφής στην ταπετσαρία</string>
+    <string name="lwp_drag">Προσομοιώστε τα γεγονότα αφής στην ταπετσαρία</string>
+    <string name="lwp_drag_desc">Στείλτε πολλαπλά γεγονότα αφής</string>
+    <string name="pref_hide_navbar">Απόκρυψη μπάρας πλοήγησης</string>
+    <string name="pref_hide_statusbar">Απόκρυψη μπάρας κατάστασης</string>
+    <string name="history_settings_summary">Αρχικοποιείστε το ιστορικό σας, την λίστα εξαιρούμενων εφαρμογών, …</string>
+    <string name="user_interface_summary">Θέματα, διαφάνειες και χρώματα</string>
+    <string name="providers_summary">Προσαρμογή αποτελεσμάτων αναζήτησης, προσθήκη νέων μηχανών αναζήτησης, …</string>
+    <string name="title_ux">Εμπειρία χρήσης</string>
+    <string name="user_experience_summary">Μινιμαλιστική διεπαφή, ρυθμίσεις πληκτρολογίου, …</string>
+    <string name="title_favorites">Ρυθμίσεις αγαπημένων</string>
+    <string name="history_favorites_summary">Αρχικοποιήστε τα αγαπημένα, αφαιρέστε την γραμμή αγαπημένων, …</string>
+    <string name="freeze_history_summary">Κρατήστε το ιστορικό ως έχει</string>
+    <string name="enable_favorites_bar_summary_off">Εμφάνιση αγαπημένων μόνο όταν πατήσετε το εικονίδιο KISS</string>
+    <string name="enable_favorites_bar_summary_on">Εμφάνιση αγαπημένων πάνω από την μπάρα αναζήτησης</string>
+    <string name="get_help">Λήψη βοήθειας</string>
+    <string name="permission_denied">Η άδεια απορρίφθηκε</string>
+    <string name="wp_animate_center">Κεντράρισμα ταπετσαρίας</string>
+    <string name="pref_hide_circle">Απόκρυψη του κύκλου KISS και τον κατάλογο των τριών τελειών</string>
+    <string name="rounded_list">Στρογγυλεμένες γωνίες στις λίστες</string>
+    <string name="rounded_bars">Στρογγυλεμένες γωνίες στις μπάρες</string>
+    <string name="colors">Χρώματα</string>
+    <string name="shortcuts_no_host_permission">Το KISS δεν είναι πλέον ο κύριος εκκινητής σας και δεν έχει πρόσβαση στις συντομεύσεις σας.</string>
+    <string name="ctx_menu">Μενού KISS</string>
+    <string name="pref_tags_menu">Προσθήκη ετικετών στο μενού</string>
+    <string name="pref_tags_menu_dismiss">Κλείσιμο μενού ετικετών μετά την επιλογή</string>
+    <string name="popup_tags_title">Διαθέσιμες ετικέτες</string>
+    <string name="popup_tags_actions">Διαθέσιμες ενέργειες</string>
+    <string name="show_history">Προβολή ιστορικού</string>
+    <string name="unable_to_initialize_shortcuts">Δεν είναι δυνατή η αρχικοποίηση των συντομεύσεων. Είναι το KISS o προεπιλεγμένος σας εκκινητής;</string>
+    <string name="contact_pack_mask_summary">Χρήση μάσκας πακέτου εικονιδίων για επαφές</string>
+    <string name="history_frecency">Συχνή πρόσβαση προσφάτως</string>
+    <string name="history_recency">Πρώτα τα προσφάτως προσβάσιμα</string>
+    <string name="custom_icon_badged_adaptive_fill">επισημασμένη προσαρμοστική πλήρωση</string>
+    <string name="custom_icon_application_adaptive_fill">προσαρμοστική πλήρωση εφαρμογής</string>
+    <string name="custom_icon_badged_adaptive">επισημασμένο προσαρμοστικό</string>
+    <string name="custom_icon_activity_adaptive_fill">προσμαρμοστική πλήρωση δραστηριότητας</string>
+    <string name="pref_show_untagged">Προβολή ενέργειας χωρίς ετικέτα</string>
+    <string name="wp_animate_sides">Η ταπετσαρία μένει στην πλευρά</string>
+    <string name="icons_category">Εικονίδια</string>
+    <string name="contacts_shape_summary">Σχήμα του εικονιδίου επαφών</string>
+    <string name="contact_pack_mask">Μορφοποίηση εικονιδίων επαφών</string>
+    <string name="force_adaptive_summary">Για μη προσαρμοστικά εικονίδια, μειώστε την κλίμακα και τοποθετήστε τα σε λευκό φόντο</string>
+    <string name="force_shape_summary">Χρήση προσαρμοστικής μάσκας σε μη προσαρμοστικά εικονίδια</string>
+    <string name="force_shape">Επιβολή σχήματος φόντου</string>
+    <string name="force_adaptive">Επιβολή φόντου εικονιδίου</string>
+    <string name="adaptive_shape_name">Σχήμα φόντου για εικονίδια</string>
+    <string name="gesture_long_press_name">Ενέργεια σε παρατεταμένο πάτημα</string>
+    <string name="gesture_apps">Εμφάνιση καταλόγου εφαρμογών</string>
+    <string name="gesture_notifications">Εμφάνιση πίνακα ειδοποιήσεων</string>
+    <string name="gesture_keyboard">Εμφάνιση πληκτρολογίου</string>
+    <string name="gesture_do_nothing">Μην κάνεις τίποτε</string>
+    <string name="history_adaptive">Προσαρμοσμένο στη χρήση του χρήστη</string>
+    <string name="history_frequency">Συχνή πρόσβαση</string>
+    <string name="theme_shadow">Περίγραμμα κειμένου (σκιά)</string>
+    <string name="theme_customisation">Προηγμένη εξατομίκευση θεμάτων</string>
+    <string name="custom_icon_preview">Προεπισκόπηση</string>
+    <string name="custom_icon_badged_with_pack">σημειωμένο με πακέτο</string>
+    <string name="custom_icon_badged">σημειωμένο</string>
+    <string name="custom_icon_activity_adaptive">προσαρμοστική δραστηριότητα</string>
+    <string name="custom_icon_activity_with_pack">δραστηριότητα με πακέτο</string>
+    <string name="custom_icon_activity">δραστηριότητα</string>
+    <string name="custom_icon_hint">Φιλτράρισμα κατά όνομα</string>
+    <string name="double_tap_to_lock">Διπλό πάτημα για κλείδωμα οθόνης</string>
+    <string name="enable_double_tap_to_lock">Για να ενεργοποιήσετε το διπλό πάτημα για κλείδωμα, θα πρέπει να παραχωρήσετε πρόσθετα δικαιώματα: ενεργοποιήστε το KISS στην ακόλουθη οθόνη.</string>
+    <string name="gesture_right_name">Ενέργεια κατά το σύρσιμο προς τα δεξιά</string>
+    <string name="gesture_left_name">Ενέργεια κατά το σύρσιμο προς τα αριστερά</string>
+    <string name="gesture_down_name">Ενέργεια κατά το σύρσιμο προς τα κάτω</string>
+    <string name="gesture_up_name">Ενέργεια κατά το σύρσιμο προς τα επάνω</string>
+    <string name="lock_service_description">Κλείδωμα οθόνης από τον KISS Launcher</string>
+    <string name="menu_widget_move_down">Μετακίνηση προς τα κάτω</string>
+    <string name="menu_widget_move_up">Μετακίνηση προς τα επάνω</string>
+    <string name="menu_size_up">Μεγέθυνε</string>
+    <string name="menu_size_down">Ελάττωσε</string>
+    <string name="large_favorites_bar">Χρήση μεγαλύτερων αγαπημένων</string>
+    <string name="copy_confirmation">Αντιγράφηκε στο πρόχειρο</string>
+    <string name="cant_pin_shortcut">Αδύνατη η προσθήκη συντόμευσης. Είναι το KISS ο προεπιλεγμένος σας εκκινητής;</string>
+    <string name="notification_dialog">Επιλέξτε το KISS στον ακόλουθο κατάλογο για ενεργοποίηση.</string>
+    <string name="notification_support">Εμφάνιση μίας τελείας στις εφαρμογές με ειδοποιήσεις</string>
+    <string name="pref_fav_tags_drawable">Δημιουργία εικονιδίων για ετικέτες αγαπημένων</string>
+    <string name="app_rename_title">Εξατομικευμένο όνομα</string>
+    <string name="menu_custom_icon">Εξατομικευμένο εικονίδιο</string>
+    <string name="pref_fav_tags_drawable_desc">Απενεργοποίηση για κατανάλωση λιγότερης μνήμης για πολλές ετικέτες αγαπημένων</string>
+    <string name="show_untagged">Εμφάνιση χωρίς ετικέτα</string>
+    <string name="pref_fav_tags_select">Ετικέτες για εμφάνιση στη γραμμή αγαπημένων</string>
+    <string name="pref_toggle_tags_select">Ετικέτες για εμφάνιση στον κατάλογο</string>
+    <string name="screen_toggle_tags">Εξατομίκευση καταλόγου ετικετών</string>
+    <string name="black_notification_icons">Εμφάνιση των εικονιδίων ειδοποιήσεων σε μάυρο</string>
+    <string name="hide_search_bar_hint">Αφαίρεση υποδείξεων από τη γραμμή αναζήτησης</string>
+    <string name="pref_hide_circle_desc">Τα κουμπιά θα εξακολουθήσουν να λειτουργούν, αλλά θα είναι αόρατα.</string>
+    <string name="pref_hide_statusbar_desc">Απόκρυψη γραμμής ειδοποιήσεων και ενεργοποίηση εμβυθιστικής λειτουργίας</string>
+    <string name="pref_hide_navbar_desc">Απόκρυψη γραμμής πλοήγησης και ενεργοποίηση εμβυθιστικής λειτουργίας</string>
+    <string name="menu_app_store">Προβολή στο κατάστημα</string>
+    <string name="menu_exclude_history">από το ιστορικό</string>
+    <string name="menu_exclude_kiss">από το KISS</string>
+    <string name="menu_app_rename">Μετονομασία</string>
+    <string name="regenerate_shortcuts_done">Οι συντομεύσεις αναδημιουργήθηκαν</string>
+    <string name="regenerate_shortcuts_desc">Θα θέλατε να αναδημιουργήσετε τον κατάλογο συντομεύσεων;</string>
+    <string name="search_provider_default">Προεπιλεγμένη μηχανή αναζήτησης ιστού κατά την εκκίνηση</string>
+    <string name="regenerate_shortcuts">Αναδημιούργηση συντομεύσεων όλων των εφαρμογών</string>
+    <string name="wp_animate_sides_desc">Η ταπετσαρία θα μείνει στα αριστερά ή στα δεξιά μετά την κύλιση</string>
+    <string name="wp_animate_center_desc">Η ταπετσαρία θα επιστρέψει στο κέντρο μετά την κύλιση</string>
+    <string name="wp_drag_animate_desc">Σύρετε ← → για κύλιση ταπετσαρίας</string>
+    <string name="wp_drag_animate">Κύλιση ταπετσαρίας</string>
+    <string name="keyboard_suggestions">Ενεργοποίηση αυτόματης συμπλήρωσης/προτάσεων</string>
+    <string name="ui_excluded_from_history_apps">Προβολή ή επεξεργασία εφαρμογών αποκλεισμένων από το ιστορικό</string>
+    <string name="reset_excluded_from_history_apps_name">Επαναφορά καταλόγου εφαρμογών αποκλεισμένων από το ιστορικό</string>
+    <string name="search_provider_toggle">Σύνδεσμοι για μηχανές αναζήτησης ιστού</string>
+    <string name="contacts_call_on_click">Πατήστε για να καλέσετε επαφές</string>
+    <string name="excluded_app_history_added">Η εφαρμογή εξαιρέθηκε από το ιστορικό. Επαναφορά μέσω των ρυθμίσεων του KISS</string>
+    <string name="title_wallpaper">Αλληλεπιδράσεις ζωντανών ταπετσαριών</string>
+    <string name="settings_excluded_apps">Εξαιρούμενες εφαρμογές</string>
+    <string name="reset_excluded_from_history_apps_warn">Θέλετε σίγουρα να επαναφέρετε τις εξαιρέσεις από τον κατάλογο της εφαρμογής ιστορικού;</string>
+    <string name="search_results_options">Αποτελέσματα αναζήτησης</string>
+    <string name="theme_wallpaper">Ταπετσαρία</string>
+    <string name="gesture_history">Εμφάνιση ιστορικού</string>
+    <string name="custom_name_set_default">Προεπιλεγμένο όνομα</string>
+    <string name="custom_name_rename">Μετονομασία</string>
+    <string name="show_subicons">Εμφάνιση του εικονιδίου της εφαρμογής στις συντομεύσεις</string>
+    <string name="app_rename_confirmation">Το όνομα της εφαρμογής είναι %s</string>
+    <string name="contacts_shape">Σχήμα επαφών</string>
+    <string name="custom_icon_application_adaptive">προσαρμοστική εφαρμογή</string>
+    <string name="custom_icon_application_with_pack">εφαρμογή με πακέτο</string>
+    <string name="custom_icon_application">εφαρμογή</string>
+    <string name="default_icon">προεπιλεγμένο εικονίδιο</string>
+    <string name="gestures">Κινήσεις</string>
+    <string name="history_alphabetically">Αλφαβητικά</string>
+    <string name="swap_kiss_button_with_menu">Κουμπί KISS στα δεξιά</string>
+    <string name="theme_light_transparent">Διαφανές</string>
+    <string name="theme_semi_dark">Σκούρο ημιδιαφανές</string>
+    <string name="theme_semi_light">Ημιδιαφανές</string>
+    <string name="theme_dark_transparent">Σκούρο διαφανές</string>
+    <string name="theme_dark">Σκοτεινό</string>
+    <string name="theme_light">Φωτεινό</string>
+    <string name="theme_customize_enabled">Ενεργοποιημένο</string>
+    <string name="theme_customize_disabled">Απενεργοποιημένο</string>
+    <string name="theme_customize_default">Προεπιλεγμένο θέμα</string>
+    <string name="theme_result_color">Χρώμα κειμένου αποτελεσμάτων</string>
+    <string name="theme_separator">Διαχωριστής αποτελεσμάτων</string>
+    <string name="theme_amoled">AMOLED σκούρο</string>
+    <string name="loading">Φόρτωση…</string>
+    <string name="exclude_favorites_apps">Εξαίρεση αγαπημένων από τη λίστα εφαρμογών</string>
+    <string name="import_settings_dialog">Θα αντικατασταθούν οι τρέχουσες ρυθμίσεις και οι ετικέτες με περιεχόμενο προχείρου. Οι υπάρχουσες ετικέτες θα ΑΦΑΙΡΕΘΟΥΝ. Είστε σίγουρος;</string>
+    <string name="import_settings">Εισαγωγή ρυθμίσεων και ετικετών</string>
+    <string name="export_settings">Εξαγωγή ρυθμίσεων και ετικετών</string>
+    <string name="clipboard_warning_dialog">Θα αντικατασταθεί το περιεχόμενο του προχείρου σας.</string>
+    <string name="title_import_export">Εισαγωγή &amp; εξαγωγή</string>
+    <string name="theme_bar_color">Χρώμα Γραμμής αγαπημένων και Γραμμής αναζήτησης</string>
+    <string name="shape_hexagon">Εξάγωνο</string>
+    <string name="shape_octagon">Oκτάγωνο</string>
+    <string name="ui_item_open">Άνοιγμα“%1$s”</string>
+    <string name="history_onkeyboard_name">Εμφάνιση ιστορικού με πληκτρολόγιο</string>
+    <string name="history_onkeyboard_desc">Εμφάνιση ιστορικού όταν το εικονικό πληκτρολόγιο είναι ορατό</string>
+    <string name="gesture_homescreen">Πήγαινε στην Αρχική</string>
+    <string name="adaptive_shape_summary">Εικονίδιο σχήματος εφαρμογών</string>
+    <string name="shape_system_default">Προκαθορισμνένο συστήματος</string>
+    <string name="shape_app">Σχήμα εφαρμογής</string>
+    <string name="shape_circle">Κύκλος</string>
+    <string name="shape_square">Τετράγωνο</string>
+    <string name="shape_rounded_rectangle">Στρογγυλεμένο ορθογώνιο</string>
 </resources>

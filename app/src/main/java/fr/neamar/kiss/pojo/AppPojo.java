@@ -1,61 +1,89 @@
 package fr.neamar.kiss.pojo;
+
+import android.os.Build;
+
 import fr.neamar.kiss.utils.UserHandle;
 
-import android.util.Pair;
+public final class AppPojo extends PojoWithTags {
 
-import fr.neamar.kiss.normalizer.StringNormalizer;
-
-public class AppPojo extends Pojo {
-    public String packageName;
-    public String activityName;
-    public UserHandle userHandle;
-
-    // Tags normalized
-    public String tagsNormalized;
-    // Array that contains the non-normalized positions for every normalized
-    // character entry
-    private int[] tagsPositionMap = null;
-
-    public void setTags(String tags) {
-    // Set the actual user-friendly name
-        this.tags = tags;
-
-        if (this.tags != null) {
-            this.tags = this.tags.replaceAll("<", "&lt;");
-            // Normalize name for faster searching
-            Pair<String, int[]> normalized = StringNormalizer.normalizeWithMap(this.tags);
-            this.tagsNormalized = normalized.first;
-            this.tagsPositionMap = normalized.second;
-        }
+    public static String getComponentName(String packageName, String activityName,
+                                          UserHandle userHandle) {
+        return userHandle.addUserSuffixToString(packageName + "/" + activityName, '#');
     }
 
-    public void setTagHighlight(int positionStart, int positionEnd) {
-        int posStart = this.mapTagsPosition(positionStart);
-        int posEnd = this.mapTagsPosition(positionEnd);
+    public final String packageName;
+    public final String activityName;
+    public final UserHandle userHandle;
 
-        this.displayTags = this.tags.substring(0, posStart)
-                + '{' + this.tags.substring(posStart, posEnd) + '}' + this.tags.substring(posEnd, this.tags.length());
-    }
-
+    private boolean excluded;
+    private boolean excludedFromHistory;
     /**
-     * Map a position in the normalized name to a position in the standard name string
-     *
-     * @param position Position in normalized name
-     * @return Position in non-normalized string
+     * Whether shortcuts are excluded for this app
      */
-    public int mapTagsPosition(int position) {
-        if (this.tagsPositionMap != null) {
-            if (position < this.tagsPositionMap.length) {
-                return this.tagsPositionMap[position];
-            }
-            return this.tags.length();
+    private boolean excludedShortcuts;
+    private long customIconId = 0;
+    private final boolean disabled;
+
+    public AppPojo(String id, String packageName, String activityName, UserHandle userHandle,
+                   boolean isExcluded, boolean isExcludedFromHistory, boolean isExcludedShortcuts, boolean disabled) {
+        super(id);
+
+        this.packageName = packageName;
+        this.activityName = activityName;
+        this.userHandle = userHandle;
+
+        this.excluded = isExcluded;
+        this.excludedFromHistory = isExcludedFromHistory;
+        this.excludedShortcuts = isExcludedShortcuts;
+        this.disabled = disabled;
+    }
+
+    public String getComponentName() {
+        return getComponentName(packageName, activityName, userHandle);
+    }
+
+    public boolean isExcluded() {
+        return excluded;
+    }
+
+    public void setExcluded(boolean excluded) {
+        this.excluded = excluded;
+    }
+
+    public boolean isExcludedFromHistory() {
+        return excludedFromHistory;
+    }
+
+    public void setExcludedFromHistory(boolean excludedFromHistory) {
+        this.excludedFromHistory = excludedFromHistory;
+    }
+
+    public boolean isExcludedShortcuts() {
+        return excludedShortcuts;
+    }
+
+    public void setExcludedShortcuts(boolean excludedShortcuts) {
+        this.excludedShortcuts = excludedShortcuts;
+    }
+
+    public void setCustomIconId(long iconId) {
+        customIconId = iconId;
+    }
+
+    public long getCustomIconId() {
+        return customIconId;
+    }
+
+    public String getPackageKey() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return userHandle.getRealHandle().hashCode() + "|" + packageName;
         } else {
-            // No mapping defined
-            if (position < this.tags.length()) {
-                return position;
-            }
-            return this.tags.length();
+            return packageName;
         }
     }
 
+    @Override
+    public boolean isDisabled() {
+        return disabled;
+    }
 }

@@ -1,0 +1,2 @@
+* Ayarları açarken oluşan çökme düzeltildi
+* Çeviriler güncellendi

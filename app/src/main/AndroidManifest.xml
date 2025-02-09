@@ -1,43 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="fr.neamar.kiss">
-
-    <permission
-        android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="normal" />
-
-    <permission
-        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="normal" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Self explanatory -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- To call a phone number directly without displaying the dialer -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!-- To enable / disable cellular data -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!-- To enable / disable wifi -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- To enable / disable bluetooth -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <!-- Incoming SMS sender history -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <!-- To read phone state -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- To use camera -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <!-- To read/write master sync status -->
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-    <!-- To autorotation toggle -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- Display notification drawer -->
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <!-- Ability to uninstall an app from KISS -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <!-- Android 11 now makes listing apps a non-default permission
+    https://developer.android.com/training/basics/intents/package-visibility
+    -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -49,25 +28,22 @@
         android:name="android.hardware.wifi"
         android:required="false" />
     <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera.flash"
-        android:required="false" />
-    <uses-feature
         android:name="android.hardware.nfc"
         android:required="false" />
 
     <application
+        android:name=".KissApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppThemeLight"
-        tools:ignore="GoogleAppIndexingWarning">
-        
-        <!-- Can be removed once we target SDK 24+ -->
-        <meta-data android:name="android.max_aspect" android:value="3.0" />
+        tools:ignore="GoogleAppIndexingWarning"
+        android:supportsRtl="true"
+        android:resizeableActivity="true"
+        android:localeConfig="@xml/locales_config"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_descriptor">
 
         <!--
         clearTaskOnLaunch: when viewing kiss settings, display the main activity when pressing home https://github.com/Neamar/KISS/issues/117
@@ -79,7 +55,7 @@
             android:name=".MainActivity"
             android:clearTaskOnLaunch="true"
             android:excludeFromRecents="true"
-            android:label="@string/app_name"
+            android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="user"
             android:stateNotNeeded="true"
@@ -95,15 +71,20 @@
                 <action android:name="android.intent.action.ASSIST" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
+            </intent-filter>
             <meta-data
                 android:name="com.android.systemui.action_assist_icon"
                 android:resource="@drawable/ic_launcher" />
         </activity>
-        <activity android:name=".DummyActivity"
+        <activity
+            android:name=".DummyActivity"
+            android:exported="true"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -111,26 +92,40 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/activity_setting"
-            android:theme="@style/SettingTheme" />
-
-        <!-- On new app installed or sdcard mount / unmount refresh the list -->
-        <receiver android:name=".broadcast.PackageAddedRemovedHandler">
+            android:exported="true"
+            android:theme="@style/SettingTheme"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.MEDIA_REMOVED" />
-
-                <action android:name="android.intent.action.ACTION_MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.ACTION_MEDIA_REMOVED" />
-
-                <data android:scheme="file" />
-                <data android:scheme="package" />
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </receiver>
+        </activity>
+        <activity
+            android:name=".PickAppWidgetActivity"
+            android:exported="false"
+            android:label="@string/menu_widget_add"
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/SettingTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".kustomsupport.AutoFinishTransparentActivity"
+            android:theme="@style/Theme.Transparent" />
 
-        <receiver android:name=".broadcast.LocaleChangedReceiver"
+        <provider
+            android:name=".kustomsupport.Kustom5SecsProvider"
+            android:authorities="${applicationId}.kustomsupport.kustom5secsprovider"
+            android:exported="true"
+            android:grantUriPermissions="true" />
+
+        <receiver
+            android:name=".broadcast.LocaleChangedReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -138,49 +133,50 @@
             </intent-filter>
         </receiver>
 
-        <!-- On incoming messages, add user to history -->
-        <receiver
-            android:name=".broadcast.IncomingSmsHandler"
-            android:enabled="false"
-            tools:ignore="UnprotectedSMSBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-
         <!-- On incoming calls, add user to history -->
         <receiver
             android:name=".broadcast.IncomingCallHandler"
+            android:exported="true"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-
-        <!-- Intents received used to install/uninstall shortcuts from other applications -->
-        <receiver
-            android:name=".broadcast.InstallShortcutHandler"
-            android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
+        <service
+            android:name=".broadcast.IncomingCallScreeningService"
+            android:permission="android.permission.BIND_SCREENING_SERVICE"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
+                <action android:name="android.telecom.CallScreeningService" />
             </intent-filter>
-        </receiver>
+        </service>
 
-        <receiver
-            android:name=".broadcast.UninstallShortcutHandler"
-            android:permission="com.android.launcher.permission.UNINSTALL_SHORTCUT">
-            <intent-filter>
-                <action android:name="com.android.launcher.action.UNINSTALL_SHORTCUT" />
-            </intent-filter>
-        </receiver>
 
         <service android:name=".dataprovider.AppProvider" />
         <service android:name=".dataprovider.ContactsProvider" />
-        <service android:name=".dataprovider.PhoneProvider" />
-        <service android:name=".dataprovider.SearchProvider" />
-        <service android:name=".dataprovider.SettingsProvider" />
         <service android:name=".dataprovider.ShortcutsProvider" />
-        <service android:name=".dataprovider.TogglesProvider" />
+
+        <service android:name=".notification.NotificationListener"
+            android:enabled="@bool/notification_service_enabled"
+            android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".utils.LockAccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/lock_accessibility_service_config" />
+        </service>
     </application>
 
 </manifest>

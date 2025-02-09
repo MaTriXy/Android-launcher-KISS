@@ -1,76 +1,125 @@
 package fr.neamar.kiss.dataprovider;
 
+import android.content.Context;
+import android.content.pm.LauncherApps;
+import android.content.pm.ShortcutInfo;
+import android.os.Build;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+import fr.neamar.kiss.DataHandler;
+import fr.neamar.kiss.KissApplication;
+import fr.neamar.kiss.R;
 import fr.neamar.kiss.loader.LoadShortcutsPojos;
-import fr.neamar.kiss.pojo.Pojo;
-import fr.neamar.kiss.pojo.ShortcutsPojo;
+import fr.neamar.kiss.normalizer.StringNormalizer;
+import fr.neamar.kiss.pojo.ShortcutPojo;
+import fr.neamar.kiss.searcher.Searcher;
+import fr.neamar.kiss.utils.FuzzyScore;
+import fr.neamar.kiss.utils.ShortcutUtil;
 
-public class ShortcutsProvider extends Provider<ShortcutsPojo> {
+public class ShortcutsProvider extends Provider<ShortcutPojo> {
+    private static boolean notifiedKissNotDefaultLauncher = false;
+    private static final String TAG = ShortcutsProvider.class.getSimpleName();
+
+    @Override
+    public void onCreate() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            final LauncherApps launcher = (LauncherApps) this.getSystemService(Context.LAUNCHER_APPS_SERVICE);
+            assert launcher != null;
+
+            launcher.registerCallback(new LauncherAppsCallback() {
+                @Override
+                public void onShortcutsChanged(String packageName, List<ShortcutInfo> shortcuts, android.os.UserHandle user) {
+                    if (isAnyShortcutVisible(shortcuts)) {
+                        Log.d(TAG, "Shortcuts changed for " + packageName);
+                        KissApplication.getApplication(ShortcutsProvider.this).getDataHandler().reloadShortcuts();
+                    }
+                }
+
+                private boolean isAnyShortcutVisible(List<ShortcutInfo> shortcuts) {
+                    DataHandler dataHandler = KissApplication.getApplication(ShortcutsProvider.this).getDataHandler();
+                    Set<String> excludedApps = dataHandler.getExcluded();
+                    Set<String> excludedShortcutApps = dataHandler.getExcludedShortcutApps();
+
+                    for (ShortcutInfo shortcutInfo : shortcuts) {
+                        if (ShortcutUtil.isShortcutVisible(ShortcutsProvider.this, shortcutInfo, excludedApps, excludedShortcutApps)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            });
+        }
+
+        super.onCreate();
+    }
 
     @Override
     public void reload() {
-        this.initialize(new LoadShortcutsPojos(this));
+        super.reload();
+        // If the user tries to add a new shortcut, but KISS isn't the default launcher
+        // AND the services are not running (low memory), then we won't be able to
+        // spawn a new service on Android 8.1+.
+
+        try {
+            this.initialize(new LoadShortcutsPojos(this));
+        } catch (IllegalStateException e) {
+            if (!notifiedKissNotDefaultLauncher) {
+                // Only display this message once per process
+                Toast.makeText(this, R.string.unable_to_initialize_shortcuts, Toast.LENGTH_LONG).show();
+            }
+            notifiedKissNotDefaultLauncher = true;
+            Log.i(TAG, "Unable to initialize shortcuts", e);
+        }
     }
 
     @Override
-    public ArrayList<Pojo> getResults(String query) {
-        ArrayList<Pojo> results = new ArrayList<>();
+    public void requestResults(String query, Searcher searcher) {
+        Set<String> excludedFavoriteIds = KissApplication.getApplication(this).getDataHandler().getExcludedFavorites();
 
-        int relevance;
-        int matchPositionStart;
-        int matchPositionEnd;
-        String shortcutNameLowerCased;
+        StringNormalizer.Result queryNormalized = StringNormalizer.normalizeWithResult(query, false);
 
-        final String queryWithSpace = " " + query;
-        for (ShortcutsPojo shortcut : pojos) {
-            relevance = 0;
-            shortcutNameLowerCased = shortcut.nameNormalized;
-
-            matchPositionEnd = 0;
-            if (shortcutNameLowerCased.startsWith(query)) {
-                relevance = 75;
-                matchPositionStart = 0;
-                matchPositionEnd   = query.length();
-            }
-            else if ((matchPositionStart = shortcutNameLowerCased.indexOf(queryWithSpace)) > -1) {
-                relevance = 50;
-                matchPositionEnd = matchPositionStart + queryWithSpace.length();
-            }
-            else if ((matchPositionStart = shortcutNameLowerCased.indexOf(query)) > -1) {
-                relevance = 1;
-                matchPositionEnd = matchPositionStart + query.length();
-            }
-
-            if (relevance > 0) {
-                shortcut.setDisplayNameHighlightRegion(matchPositionStart, matchPositionEnd);
-                shortcut.relevance = relevance;
-                results.add(shortcut);
-            }
+        if (queryNormalized.codePoints.length == 0) {
+            return;
         }
 
-        return results;
-    }
+        FuzzyScore fuzzyScore = new FuzzyScore(queryNormalized.codePoints);
 
-    public Pojo findById(String id) {
+        for (ShortcutPojo pojo : getPojos()) {
+            // exclude favorites from results
+            if (excludedFavoriteIds.contains(pojo.getFavoriteId())) {
+                continue;
+            }
 
-        for (Pojo pojo : pojos) {
-            if (pojo.id.equals(id)) {
-                pojo.displayName = pojo.name;
-                return pojo;
+            FuzzyScore.MatchInfo matchInfo = fuzzyScore.match(pojo.normalizedName.codePoints);
+            boolean match = pojo.updateMatchingRelevance(matchInfo, false);
+
+            // check relevance for tags
+            if (pojo.getNormalizedTags() != null) {
+                matchInfo = fuzzyScore.match(pojo.getNormalizedTags().codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            if (match && !searcher.addResult(pojo)) {
+                return;
             }
         }
-
-        return null;
     }
 
-    public Pojo findByName(String name) {
-        for (Pojo pojo : pojos) {
-            if (pojo.name.equals(name))
-                return pojo;
+    public List<ShortcutPojo> getPinnedShortcuts() {
+        List<ShortcutPojo> pojos = getPojos();
+        List<ShortcutPojo> records = new ArrayList<>(pojos.size());
+
+        for (ShortcutPojo pojo : pojos) {
+            if (!pojo.isPinned()) continue;
+
+            pojo.relevance = 0;
+            records.add(pojo);
         }
-        return null;
+        return records;
     }
-
-
 }

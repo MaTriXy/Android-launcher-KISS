@@ -1,15 +1,20 @@
 package fr.neamar.kiss.db;
 
 public class ShortcutRecord {
+    public int dbId;
 
-	public String name;
+    /**
+     * Visible name of shortcut.
+     */
+    public String name;
 
-	public String packageName;
+    /**
+     * The package name of the publisher app.
+     */
+    public String packageName;
 
-	public String iconResource;
+    public String intentUri;
 
-	public String intentUri;
-
-	public byte[] icon_blob;
+    public byte[] icon_blob;
 
 }

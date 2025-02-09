@@ -1,191 +1,347 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    <string name="app_name">КИС покретач</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KISS покретач</string>
     <string name="activity_setting">Поставке</string>
     <string name="ui_search_hint">Тражите апликације, контакте…</string>
     <string name="ui_item_search">%1$s Тражи “%2$s”</string>
     <string name="ui_item_phone">Позови “%s”</string>
     <string name="ui_item_contact_hint_message">Порука</string>
     <string name="ui_item_contact_hint_call">Позови</string>
-
     <string name="title_ui">Корисничко сучеље</string>
     <string name="title_history">Поставке историјата</string>
-    <string name="title_providers">Избор услуга</string>
-    <string name="menu_settings">Поставке уређаја</string>
-    <string name="no_favorites">Још нема омиљених. Додајте их дугим додиром.</string>
-
+    <string name="title_providers">Подешавања претраге</string>
+    <string name="menu_settings">Поставке уређаја…</string>
     <string name="ui_empty_1">Почните претрагом било чега</string>
     <string name="ui_empty_1_sub">Апликације, контакти, поставке…</string>
     <string name="ui_empty_2">Увек видите ваш историјат</string>
     <string name="ui_empty_2_sub">За бржи приступ</string>
     <string name="ui_empty_3">Брзи приступ најчешће коришћеним апликацијама</string>
     <string name="ui_empty_3_sub">КИС покретач учи ваше навике</string>
-
-    <string name="toggles_name">Прекидачи (бежични, блутут…)</string>
-
     <string name="contacts_name">Контакти</string>
-
-    <string name="search_name">Веб претрага</string>
-
-    <string name="settings_name">Поставке уређаја</string>
-
-    <string name="phone_name">Бројеви телефона</string>
-
+    <string name="search_name">Провајдери веб претраге</string>
+    <string name="settings_name">Подешавања уређаја</string>
     <string name="main_menu">Мени</string>
     <string name="main_clear">Очисти траку претраге</string>
-    <string name="main_kiss">Приказуј списак апликација и омиљено</string>
+    <string name="main_kiss">Прикажи листу апликација</string>
     <string name="main_kiss_back">Приказуј историјат</string>
     <string name="reset_name">Ресетуј историјат</string>
     <string name="keyboard_name">Приказуј тастатуру по покретању</string>
-
     <string name="alias_phone">dial,biraj,zovi,pozovi,šalji,poruka,telefon,бирај,зови,позови,шаљи,порука,телефон</string>
     <string name="alias_contacts">kontakt,ljudi,osobe,контакт,људи,особе</string>
-    <string name="alias_web">internet,web,browser,pregledač,pretraživač,интернет,веб,прегледач,претраживач</string>
-    <string name="alias_mail">pošta,mejl,imejl,email,мејл,имејл,пошта</string>
+    <string name="alias_web">Интернет, веб, прегледач</string>
+    <string name="alias_mail">mail,email,e-mail,pošta,mejl,imejl,пошта,мејл,имејл</string>
     <string name="alias_market">market,store,app center,prodavnica,маркет,продавница,апликације</string>
-    <string name="alias_messaging">text,sms,mms,poruka,порука,смс,ммс,слање</string>
+    <string name="alias_messaging">text,compose,SMS,MMS,poruka,razmena,razmjena,порука,размена,размјена</string>
     <string name="settings_prefix">"Поставка: "</string>
-    <string name="toggles_prefix">"Прекидач: "</string>
     <string name="settings_airplane">Авионски режим</string>
     <string name="settings_device_info">Подаци о уређају</string>
     <string name="settings_applications">Апликације</string>
     <string name="settings_connectivity">Повезивање</string>
     <string name="settings_battery">Батерија</string>
-    <string name="toggle_wifi">Бежични</string>
-    <string name="toggle_bluetooth">Блутут</string>
-    <string name="toggle_silent">Тихо</string>
-    <string name="toggle_data">Мрежни интернет</string>
-    <string name="menu_wallpaper">Ажурирај тапет</string>
+    <string name="menu_wallpaper">Ажурирај позадину…</string>
     <string name="application_not_found">Опс… Не могу да покренем ту апликацију.</string>
     <string name="history_erased">Историјат обрисан.</string>
     <string name="alias_clock">sat,alarm,tajmer,štoperica,сат,аларм,тајмер,штоперица</string>
-
     <string name="removed_item">Уклоњено</string>
     <string name="menu_remove">Уклони из историјата</string>
     <string name="menu_app_details">Подаци о апликацији</string>
-    <string name="menu_app_uninstall">Уклони</string>
-
+    <string name="menu_app_uninstall">Деинсталирај</string>
     <string name="title_advanced">Напредне поставке</string>
-    <string name="toggles_on">%s активиран/а</string>
-    <string name="toggles_off">%s деактивиран/а</string>
-
     <string name="shortcuts_name">Пречице</string>
-
     <string name="root_mode_name">Корени режим</string>
     <string name="root_mode_error">Не могу да добијем корене привилегије.</string>
     <string name="settings_nfc">НФЦ</string>
     <string name="settings_tethering">Тетеринг</string>
-    <string name="toggle_torch">Бакља</string>
-    <string name="toggle_sync">Синхронизација</string>
-    <string name="toggle_autorotate">Ауторотација</string>
     <string name="restart_name">Поново покрени КИС</string>
     <string name="items_title">%d ставки</string>
-
     <string name="history_mode_name">Режим историјата</string>
     <string name="icons_pack_default_name">Системске иконе</string>
-
     <string name="favorites_erased">Омиљене обрисане.</string>
     <string name="menu_favorites_add">Додај у омиљене</string>
     <string name="excluded_app_list_erased">Списак искључених апликација обрисан.</string>
     <string name="menu_app_hibernate">Хибернирај</string>
-
     <string name="menu_contact_copy_phone">Копирај број телефона</string>
-    <string name="menu_phone_create">Направи контакт</string>
-
+    <string name="menu_phone_create">Креирај контакт…</string>
     <string name="toast_favorites_added">%s је додат/а у омиљене</string>
-
-    <string name="icons_pack_name">Иконе теме (ADW.Launcher)</string>
+    <string name="icons_pack_name">Пакет икона (ADW.Launcher тема)</string>
     <string name="icons_hide_desc">Корисно на спорим уређајима</string>
-    <string name="icons_hide_main">Сакриј иконе апликација</string>
+    <string name="icons_hide_main">Сакриј иконе</string>
     <string name="portrait_title">Присили усправни режим</string>
-<string name="search_desc">Омогући претрагу помоћу Гугла, Дак-дак-го, Бинга, итд.</string>
-    <string name="reset_excluded_apps_name">Очисти списак искључених апликација</string>
+    <string name="reset_excluded_apps_name">Ресетуј листу апликација искључених из KISS</string>
     <string name="reset_excluded_apps_warn">Желите ли заиста да очистите списак искључених апликација?</string>
-    <string name="ui_excluded_apps">Прикажи/уреди искључене апликације</string>
-    <string name="ui_excluded_apps_not_found">Нема искључених апликација</string>
+    <string name="ui_excluded_apps">Прикажи или уреди апликације искључене из KISS</string>
     <string name="reset_warn">Желите ли заиста да очистите ваш историјат?</string>
     <string name="reset_favorites_name">Очисти списак омиљених</string>
     <string name="reset_favorites_warn">Желите ли заиста да очистите омиљено?</string>
-    <string name="history_hide_desc">Сакриј историјат и уводни екран, укључи виџете</string>
+    <string name="history_hide_desc">Сакриј историју и уводни екран, укључи виџете</string>
     <string name="history_hide_name">Минималистичко сучеље</string>
     <string name="history_onclick_name">Прикажи историјат по додиру</string>
     <string name="search_providers_title">Одредите сервисе веб претраге</string>
     <string name="restart_warn">Желите ли заиста поново да покренете КИС? Ако КИС није ваш подразумевани покретач, једноставно ће да изађе.</string>
-
     <string name="freeze_history_name">Замрзни историјат</string>
-    <string name="freeze_history_warn">Желите ли заиста да замрзнете историјат и онемогућите даље ажурирање? Ваш историјат се више неће мењати.</string>
-
+    <string name="freeze_history_warn">Да ли сте сигурни да желите да замрзнете историју и искључите даља ажурирања? Ваша историја се више неће мењати.</string>
     <string name="excluded_app_list_added">Апликација искључена са КИСа. Вратите је у поставкама</string>
-
-    <string name="menu_exclude">Искључи са КИСа</string>
+    <string name="menu_exclude">Искључи апликацију …</string>
     <string name="menu_shortcut_remove">Уклони пречицу</string>
-
-    <string name="theme_name">Тема сучеља</string>
-    <string name="order_apps_name">Ређање апликација</string>
-    <string name="enable_sms">Прикажи долазни СМС у историјату</string>
+    <string name="theme_name">Тема</string>
     <string name="enable_phone">Приказуј долазне позиве у историјату</string>
     <string name="enable_app">Прикажи новоинсталиране апликације у историјату</string>
     <string name="enable_favorites_bar">Прикажи омиљене изнад траке за претрагу</string>
-    <string name="exclude_favorites">Искључи омиљене из историјата</string>
-    <string name="favorites_hide">Сакриј траку омиљених</string>
-    <string name="shortcut_added">Пречица додата у КИС.</string>
-
-    <string name="restart_desc">Поправи проблеме теме / не приказивање нових контаката</string>
-    <string name="ui_excluded_apps_dialog_title">Одзначите апликације које желите да укључите</string>
-    <string name="history_mode_desc">Одредите начин попуњавања историјата</string>
+    <string name="exclude_favorites_history">Искључи омиљене из историјата</string>
+    <string name="favorites_hide">Првобитно сакриј траку са фаворитима</string>
+    <string name="restart_desc">Поправи проблеме теме и приказа нових контаката</string>
+    <string name="ui_excluded_apps_dialog_title">Изаберите апликације за искључивање</string>
+    <string name="history_mode_desc">Изаберите како треба сортирати историју</string>
     <string name="root_mode_desc">Ако је доступан, користите га да хибернирате апликације</string>
     <string name="toast_hibernate_completed">%s успешно хибернирана, поново је покрените да је пробудите.</string>
     <string name="toast_hibernate_error">%s није успешно хибернирана.</string>
     <string name="settings_storage">Складиште</string>
     <string name="settings_dev">Опције за програмера</string>
     <string name="settings_accessibility">Приступачност</string>
-    <string name="keyboard_workaround_name">Поправка за предлоге тастатуре</string>
-    <string name="keyboard_workaround_desc">Спречава покварене софтверске тастатуре (нпр. SwiftKey™) да приказују предлоге</string>
-    <string name="app_will_restart">Изменили сте неке битне поставке, апликације ће поново да се покрене.</string>
     <string name="alternate_history_inputs">Мењај улазе историјата наизменице</string>
     <string name="keyboard_options">Опције тастатуре</string>
     <string name="misc">Разно</string>
-
-<string name="title_settings">Поставке</string>
     <string name="settings_sound">Звук</string>
     <string name="settings_display">Приказ</string>
     <string name="ui_item_visit">Посети „%1$s“</string>
-    <string name="menu_tags_edit">Додај/уреди ознаке</string>
-    <string name="tags_add_title">Додајте размаком одвојене ознаке</string>
-    <string name="tags_confirmation_added">Ознака је постављена</string>
+    <string name="menu_tags_edit">Додај или уреди тагове</string>
+    <string name="tags_add_title">Додајте размаком одвојене тагове</string>
+    <string name="tags_confirmation_added">Сет тагова</string>
     <string name="toast_favorites_removed">%s је уклоњена из омиљених</string>
     <string name="menu_favorites_remove">Уклони омиљено</string>
-
-<string name="stub_app_tag">Пример ознаке</string>
     <string name="default_launcher_title">Промени подразумевани покретач</string>
     <string name="default_launcher_warn">Након што одредите подразумевани покретач отвориће вам се његов почетни екран. Желите ли заиста да наставите?
-
-Напомена: Ако нема опције „Увек“, притисните тастер Почетна након што одредите жељени покретач.</string>
-
-    <string name="tags_visible">Прикажи ознаке апликација</string>
-    <string name="share">Дели за...</string>
-
-<string name="main_color">Основна боја</string>
+\n
+\nНапомена: Ако нема опције „Увек“, притисните тастер Почетна након што одредите жељени покретач.</string>
+    <string name="tags_visible">Прикажи тагове</string>
+    <string name="share">Дели за…</string>
+    <string name="main_color">Основна боја</string>
     <string name="notification_bar_color">Боја траке обавештења</string>
-
-
-    <string name="color_picker_default_title" msgid="1248663997452044787">"Изаберите боју"</string>
-    <string name="color_swatch_description" msgid="2883438431173736180">"Боја <xliff:g id="COLOR_INDEX">%1$d</xliff:g>"</string>
-    <string name="color_swatch_description_selected" msgid="5020921249944943124">"Боја <xliff:g id="COLOR_INDEX">%1$d</xliff:g> је изабрана"</string>
-<string name="number_ofdisplay_items">Највећи број резултата у претрази и историјату</string>
-
-    <string name="color_transparent_dark">Прозирна црна</string>
-    <string name="color_transparent_white">Прозирна бела</string>
+    <string name="color_picker_default_title">"Изаберите боју"</string>
+    <string name="color_swatch_description">Боја %1$d</string>
+    <string name="color_swatch_description_selected">Изабрана боја %1$d</string>
+    <string name="number_of_display_items">Највећи број резултата у претрази и историјату</string>
+    <string name="color_transparent_dark">Транспарентно тамно</string>
+    <string name="color_transparent_white">Транспарентно бело</string>
     <string name="color_transparent">Прозирна</string>
-
-
-
-    <string name="large_search_bar">Велика трака претраге</string>
-<string name="transparent_search_bar">Прозирна трака претраге</string>
+    <string name="large_search_bar">Већа трака за претрагу</string>
+    <string name="transparent_search_bar">Прозирна трака претраге</string>
     <string name="transparent_favorites_bar">Прозирна трака омиљених</string>
-
-    <string name="menu_widget_add">(БЕТА) Додај виџет</string>
+    <string name="menu_widget_add">Додај виџет</string>
     <string name="menu_widget_remove">Уклони виџет</string>
-
+    <string name="wp_drag_animate">Клизај тапет</string>
+    <string name="search_providers_delete">Обриши провајдере веб претраге</string>
+    <string name="custom_search_provider">Додај провајдера веб претраге</string>
+    <string name="search_provider_reset">Ресетуј провајдере веб претраге</string>
+    <string name="search_provider_reset_desc">Желите ли да ресетујете списак услуга претраге?</string>
+    <string name="search_provider_reset_done_desc">Услуге претраге су ресетоване</string>
+    <string name="search_provider_name">Назив услуге</string>
+    <string name="search_provider_added">Услуга претраге је додата.</string>
+    <string name="search_provider_deleted">Услуге претраге су обрисане.</string>
+    <string name="search_provider_error_char">Не користите знак |</string>
+    <string name="search_provider_error_placeholder">Користите %s за место упита</string>
+    <string name="search_provider_error_url">Користите исправан УРЛ</string>
+    <string name="search_provider_error_exists">Услуга истог назива већ постоји</string>
+    <string name="pref_hide_navbar">Сакриј навигациону траку</string>
+    <string name="pref_hide_statusbar">Сакриј траку стања</string>
+    <string name="rate_the_app">Оцените апликацију</string>
+    <string name="user_interface_summary">Теме, прозирност и боје</string>
+    <string name="title_ux">Корисничко искуство</string>
+    <string name="title_favorites">Поставке омиљених</string>
+    <string name="get_help">Потражи помоћ</string>
+    <string name="permission_denied">Дозвола је одбијена</string>
+    <string name="excluded_app_history_added">Апликација је изузета из историје. Ресетујте кроз подешавања КИСС</string>
+    <string name="app_rename_confirmation">Назив апликације је сада %s</string>
+    <string name="app_rename_title">Прилагођено име</string>
+    <string name="menu_custom_icon">Прилагођена икона</string>
+    <string name="menu_app_rename">Преименуј</string>
+    <string name="regenerate_shortcuts_done">Пречице су обновљене</string>
+    <string name="regenerate_shortcuts_desc">Да ли желите да поново генеришете листу пречица\?</string>
+    <string name="search_provider_default">Подразумевани добављач веб претраге на ентер</string>
+    <string name="regenerate_shortcuts">Обновите све пречице за апликације</string>
+    <string name="wp_animate_sides_desc">Позадина ће се залепити улево или удесно након померања</string>
+    <string name="wp_animate_sides">Позадина са бочним лепком</string>
+    <string name="wp_animate_center_desc">Позадина ће се вратити у средиште након померања</string>
+    <string name="wp_animate_center">Средишња тапета</string>
+    <string name="wp_drag_animate_desc">Превуците ← → за помицање позадине</string>
+    <string name="lwp_drag_desc">Пошаљите више догађаја додира</string>
+    <string name="lwp_drag">Емулирај превлачење догађаја за позадину</string>
+    <string name="lwp_touch">Пошаљите додирне догађаје на позадину</string>
+    <string name="keyboard_suggestions">Омогућите аутоматско довршавање / предлоге</string>
+    <string name="ui_excluded_from_history_apps">Прегледајте или измените апликације изузете из историје</string>
+    <string name="settings_excluded_apps">Искључени уноси</string>
+    <string name="reset_excluded_from_history_apps_warn">Да ли стварно желите да ресетујете своје изузете са листе апликација за историју\?</string>
+    <string name="reset_excluded_from_history_apps_name">Ресетујте листу апликација изузетих из историје</string>
+    <string name="search_provider_toggle">Везе до добављача веб претраге</string>
+    <string name="search_results_options">Резултати претраге</string>
+    <string name="contacts_call_on_click">Кликните да бисте позвали контакте</string>
+    <string name="title_import_export">Увоз &amp; извоз</string>
+    <string name="ui_item_open">otvoriti%1$s</string>
+    <string name="colors">Боје</string>
+    <string name="exclude_favorites_apps">Искључи фаворите из листе апликација</string>
+    <string name="enable_favorites_bar_summary_on">Прикажи фаворите изнад траке претраге</string>
+    <string name="swap_kiss_button_with_menu">КИС дугме на десној страни</string>
+    <string name="hide_search_bar_hint">Уклони хинт текст из траке за претрагу</string>
+    <string name="menu_app_store">Види у продавници</string>
+    <string name="menu_exclude_kiss">од КИСа</string>
+    <string name="menu_exclude_history">из историје</string>
+    <string name="history_onkeyboard_name">Прикажи историју са тастатуром</string>
+    <string name="history_onkeyboard_desc">Прикажи историју кад је софтверска тастатура видљива</string>
+    <string name="pref_hide_circle_desc">Дугмад ће још увек радити, али ће бити невидљива.</string>
+    <string name="rounded_list">Округли ћошкови листе</string>
+    <string name="history_settings_summary">Ресетуј историју, сакриј апликације, …</string>
+    <string name="providers_summary">Прилагоди резултате претраге, додај прилагођен претраживач, …</string>
+    <string name="history_favorites_summary">Ресетуј своје фаворите, уклони траку фаворита, …</string>
+    <string name="title_wallpaper">Жива позадина интеракције</string>
+    <string name="freeze_history_summary">Задржи историју како јесте док се не одштиклира</string>
+    <string name="enable_favorites_bar_summary_off">Само прикажи фаворите када је притиснута КИС икона</string>
+    <string name="black_notification_icons">Прикажи траку обавештења у црном</string>
+    <string name="shortcuts_no_host_permission">КИС више није твој главни покретач и не може приступити твојим пречицама.</string>
+    <string name="screen_toggle_tags">Прилагоди мени тагова</string>
+    <string name="pref_fav_tags_select">Тагове које приказујеш у траци фаворита</string>
+    <string name="ctx_menu">КИС мени</string>
+    <string name="pref_tags_menu">Додај тагове у менију</string>
+    <string name="pref_tags_menu_dismiss">Затвори мени тагова након избора</string>
+    <string name="popup_tags_title">Доступни тагови</string>
+    <string name="popup_tags_actions">Доступне акције</string>
+    <string name="show_untagged">Прикажи одтаговано</string>
+    <string name="unable_to_initialize_shortcuts">Немогуће учитати пречице. Да ли ке КИС твој подразумевани покретач\?</string>
+    <string name="pref_hide_navbar_desc">Сакриј навигацијону траку у укључи имерзивни мод</string>
+    <string name="pref_hide_circle">Сакриј КИС круг и три-тачке мени</string>
+    <string name="user_experience_summary">Минималистичан УИ, подешавања тастатуре, …</string>
+    <string name="pref_hide_statusbar_desc">Сакриј нотификациону траку и укључи имерзивни мод</string>
+    <string name="pref_show_untagged">Прикажи одтаговану акцију</string>
+    <string name="rounded_bars">Оркугли ћошкови траке</string>
+    <string name="show_history">Прикажи историју</string>
+    <string name="color_system">Боје система</string>
+    <string name="cant_pin_shortcut">Није могуће додати пречицу. Да ли је KISS ваш подразумевани покретач\?</string>
+    <string name="large_favorites_bar">Користи веће фаворите</string>
+    <string name="menu_widget_move_up">Помери горе</string>
+    <string name="lock_service_description">Закључај екран из KISS покретача</string>
+    <string name="gesture_up_name">Акција при превлачењу навише</string>
+    <string name="double_tap_to_lock">Дупли додир за закључавање</string>
+    <string name="theme_shadow">Контура текста (сенка)</string>
+    <string name="theme_customize_enabled">Омогућено</string>
+    <string name="theme_light">Светло</string>
+    <string name="theme_dark_transparent">Тамно провидно</string>
+    <string name="theme_semi_light">Полу-провидно</string>
+    <string name="theme_result_color">Боја текста резултата</string>
+    <string name="history_alphabetically">Алфабетски</string>
+    <string name="gesture_notifications">Прикажи сенку обавештења</string>
+    <string name="gesture_apps">Прикажи листу апликација</string>
+    <string name="results_size">Величина приказа резултата</string>
+    <string name="theme_wallpaper">Позадина</string>
+    <string name="force_adaptive_summary">За неприлагодљиве иконице, смањи размеру и постави на белу позадину</string>
+    <string name="icons_category">Иконице</string>
+    <string name="import_settings_dialog">Ово ће преписати ваша тренутна подешавања и тагове са садржајем клипборда. Постојећи тагови ће бити УКЛОЊЕНИ. Јеси ли сигуран\?</string>
+    <string name="theme_bar_color">Трака фаворита и боја траке претраге</string>
+    <string name="shape_app">Облик апликације</string>
+    <string name="shape_circle">Круг</string>
+    <string name="shape_square">Квадрат</string>
+    <string name="shape_teardrop_bottom_left">Капљица доле лево</string>
+    <string name="shape_teardrop_top_left">Капљица горе лево</string>
+    <string name="shape_teardrop_top_right">Капљица горе десно</string>
+    <string name="shape_teardrop_random">Капљица насумично</string>
+    <string name="shape_octagon">Октагон</string>
+    <string name="shape_hexagon">Хексагон</string>
+    <string name="excluded_apps_toggle">Прикажи искључене апликације у претрази</string>
+    <string name="theme_light_transparent">Провидно</string>
+    <string name="theme_semi_dark">Тамно полу-провидно</string>
+    <string name="theme_separator">Раздвајач резултата</string>
+    <string name="theme_customisation">Напредно подешавање теме</string>
+    <string name="history_adaptive">Адаптирано коришћењу корисника</string>
+    <string name="history_recency">Прво приступљено недавно</string>
+    <string name="large_result_list_margins">Веће маргине листе</string>
+    <string name="notification_support">Прикажи тачкицу на апликацијама са обавештењима</string>
+    <string name="menu_size_down">Смањи</string>
+    <string name="gesture_down_name">Акција при превлачењу надоле</string>
+    <string name="gesture_left_name">Акција при превлачењу лево</string>
+    <string name="gestures">Гестови</string>
+    <string name="gesture_right_name">Акција при превлачењу десно</string>
+    <string name="custom_icon_hint">Филтрирај по имену</string>
+    <string name="default_icon">подразумевана иконица</string>
+    <string name="theme_customize_default">Подразумевана тема</string>
+    <string name="custom_icon_preview">Преглед</string>
+    <string name="theme_customize_disabled">Онемогућено</string>
+    <string name="theme_dark">Тамно</string>
+    <string name="gesture_do_nothing">Не ради ништа</string>
+    <string name="gesture_keyboard">Прикажи тастатуру</string>
+    <string name="contacts_shape">Облик контаката</string>
+    <string name="show_subicons">Прикажи иконицу апликације у пречицама</string>
+    <string name="custom_name_rename">Преименуј</string>
+    <string name="custom_name_set_default">Подразумевано име</string>
+    <string name="gesture_long_press_name">Акција при задржаном додиру</string>
+    <string name="adaptive_shape_name">Позадински облик за иконице</string>
+    <string name="force_adaptive">Форсирај позадину иконица</string>
+    <string name="contact_pack_mask">Облик иконица контаката</string>
+    <string name="contacts_shape_summary">Облик иконица контаката</string>
+    <string name="force_shape_summary">Користи прилагодљиву маску за неприлагодљиве иконице</string>
+    <string name="contact_pack_mask_summary">Користите маску пакета икона за контакте</string>
+    <string name="export_settings">Извези подешавања и тагове</string>
+    <string name="import_settings">Увези подешавања и тагове</string>
+    <string name="shape_system_default">Системски подразумевано</string>
+    <string name="custom_icon_activity">активност</string>
+    <string name="custom_icon_application_with_pack">апликација са пакетом</string>
+    <string name="reset_excluded_app_shortcuts_name">Ресетуј листу апликација искључених из приказивања пречица</string>
+    <string name="ui_excluded_from_shortcuts_apps">Прикажи или измени апликације искључене из приказивања пречица</string>
+    <string name="pref_fav_tags_drawable_desc">Искључите да бисте користили мање меморије за многе омиљене ознаке</string>
+    <string name="reset_excluded_app_shortcuts_warn">Да ли заиста желиш да ресетујеш листу апликација искључених из приказивања пречица\?</string>
+    <string name="copy_confirmation">Копирано у клипборд</string>
+    <string name="custom_icon_application">апликација</string>
+    <string name="notification_dialog">Означите KISS у следећем менију да бисте га укључили.</string>
+    <string name="pref_toggle_tags_select">Тагови за приказати у менију</string>
+    <string name="pref_fav_tags_drawable">Генериши иконице за омиљене тагове</string>
+    <string name="menu_size_up">Повећај</string>
+    <string name="menu_widget_move_down">Помери доле</string>
+    <string name="enable_double_tap_to_lock">Дупли додир за закључавање захтева Android Accessibility API. Подаци се не обрађују, подаци се не чувају. Да бисте користили ову функцију, омогућите KISS на следећем екрану.</string>
+    <string name="theme_amoled">АМОЛЕД тамно</string>
+    <string name="gesture_history">Прикажи историју</string>
+    <string name="gesture_homescreen">Иди на почетни екран</string>
+    <string name="gesture_launch_pojo">Покрени…</string>
+    <string name="shape_squircle">Круг-квадрат</string>
+    <string name="force_shape">Форсирај позадински облик</string>
+    <string name="loading">Учитавање…</string>
+    <string name="adaptive_shape_summary">Облик иконице апликација</string>
+    <string name="clipboard_warning_dialog">Ово ће преписати садржај из клипборда.</string>
+    <string name="shape_rounded_rectangle">Заобљени правоугаоник</string>
+    <string name="shape_teardrop_bottom_right">Капљица доле десно</string>
+    <string name="search_provider_error_uri_cannot_be_handle">URI који сте навели не може бити обрађен од стране било које апликације на вашем уређају.</string>
+    <string name="menu_shortcut_pin">Закачи пречицу</string>
+    <string name="icons_themed_summary">Иконе су обојене системским бојама (бета)</string>
+    <string name="enable_notification_history">Прикажи апликације са новим обавештењима у историји</string>
+    <string name="custom_icon_activity_with_pack">активност са пакетом</string>
+    <string name="custom_icon_activity_adaptive">адаптивна активност</string>
+    <string name="custom_icon_activity_adaptive_fill">адаптивно попуњавање активности</string>
+    <string name="custom_icon_badged_with_pack">са значком и пакетом</string>
+    <string name="history_frequency">Често приступано</string>
+    <string name="history_time">Приступано у исто време дана</string>
+    <string name="icons_themed_name">Тематске иконе</string>
+    <string name="always_default_web_search_on_enter">Увек покрени подразумеваног провајдера веб претраге при уносу</string>
+    <string name="export_settings_done">Подешавања извезена у клипборд.</string>
+    <string name="export_settings_error">Немогуће је извести подешавања.</string>
+    <string name="import_settings_save_not_possible">Немогуће је сачувати подешавања.</string>
+    <string name="results_size_default">Подразумевано</string>
+    <string name="results_size_medium">Средње</string>
+    <string name="results_size_small">Мало</string>
+    <string name="results_size_smallest">Најмање</string>
+    <string name="gesture_menu">Прикажи мени</string>
+    <string name="gesture_hide_keyboard">Сакриј тастатуру</string>
+    <string name="gesture_quicksettings">Прикажи брза подешавања</string>
+    <string name="tagged_result_sort_mode_desc">Изаберите како треба сортирати резултате када се приказују по ознаци</string>
+    <string name="custom_icon_badged">са значком</string>
+    <string name="custom_icon_badged_adaptive">адаптивна са значком</string>
+    <string name="custom_icon_badged_adaptive_fill">адаптивно попуњавање са значком</string>
+    <string name="custom_icon_application_adaptive">адаптивна апликација</string>
+    <string name="custom_icon_application_adaptive_fill">адаптивно попуњавање апликације</string>
+    <string name="tags_category">Тагови</string>
+    <string name="import_settings_version_missing">Немогуће је увезти подешавања. Није пронађен важећи низ верзије.</string>
+    <string name="import_settings_upgrade_kiss">Молимо вас да ажурирате вашу KISS верзију пре увоза ових подешавања.</string>
+    <string name="import_settings_done">Подешавања увезена.</string>
+    <string name="import_settings_error">Немогуће је увезти подешавања.</string>
+    <string name="tagged_result_sort_mode_default">Подразумевано, као у режиму историје</string>
+    <string name="tagged_result_sort_mode_name">Режим сортирања резултата са ознакама</string>
+    <string name="history_frecency">Недавно често приступано</string>
+    <string name="contact_mime_types_title">Изаберите контакте који ће бити приказани</string>
+    <string name="contact_mime_types_summary">Сви типови контаката који могу бити приказани у резултатима претраге</string>
+    <string name="menu_widget_settings">Подешавања</string>
 </resources>

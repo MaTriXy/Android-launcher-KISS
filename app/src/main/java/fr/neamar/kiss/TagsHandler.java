@@ -3,40 +3,46 @@ package fr.neamar.kiss;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
+import android.os.UserManager;
+import android.provider.AlarmClock;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 import fr.neamar.kiss.db.DBHelper;
-
-/**
- * Created by nmitsou on 13.10.16.
- */
+import fr.neamar.kiss.utils.UserHandle;
 
 public class TagsHandler {
-    Context context;
-    //cached tags
-    private Map<String, String> tagsCache;
+    private final Context context;
+    // cached tags
+    private final Map<String, String> tagsCache;
 
-    public TagsHandler(Context context) {
+    TagsHandler(Context context) {
         this.context = context;
         tagsCache = DBHelper.loadTags(this.context);
         addDefaultAliases();
     }
 
     public void setTags(String id, String tags) {
-        //remove existing tags for id
+        // sanitize tags
+        tags = tags.trim().toLowerCase(Locale.getDefault());
+        // remove existing tags for id
         DBHelper.deleteTagsForId(this.context, id);
-        //add to db
+        // add to db
         DBHelper.insertTagsForId(this.context, tags, id);
-        //add to cache
+        // add to cache
         tagsCache.put(id, tags);
     }
 
@@ -49,99 +55,130 @@ public class TagsHandler {
     }
 
     public String[] getAllTagsAsArray() {
-        Set<String> tags = new HashSet<>();
-        String[] tagsNew;
-        for (Map.Entry<String, String> entry : tagsCache.entrySet()) {
-            tags.addAll(Arrays.asList(entry.getValue().split("\\s+")));
-        }
+        Set<String> tags = getAllTagsAsSet();
+        return tags.toArray(new String[0]);
+    }
 
-        return tags.toArray(new String[tags.size()]);
+    public Set<String> getAllTagsAsSet() {
+        Set<String> tags = new HashSet<>();
+        for (String value : tagsCache.values()) {
+            tags.addAll(Arrays.asList(value.split("\\s+")));
+        }
+        tags.remove("");
+        return tags;
+    }
+
+    public Map<String, String> getTags() {
+        return tagsCache;
+    }
+
+    public void clearTags() {
+        tagsCache.clear();
+        DBHelper.deleteTags(this.context);
     }
 
     private void addDefaultAliases() {
         final PackageManager pm = context.getPackageManager();
-        ArrayList alias = new ArrayList<>();
 
-        String phoneApp = getApp(pm, Intent.ACTION_DIAL);
-        if (phoneApp != null) {
-            String phoneAlias = context.getResources().getString(R.string.alias_phone);
-            addAliasesPojo(phoneAlias, phoneApp);
-        }
+        List<String> phoneApps = getApps(pm, Intent.ACTION_DIAL);
+        String phoneAlias = context.getResources().getString(R.string.alias_phone);
+        addDefaultAliases(phoneAlias, phoneApps);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-            String contactApp = getAppByCategory(pm, Intent.CATEGORY_APP_CONTACTS);
-            if (contactApp != null) {
-                String contactAlias = context.getResources().getString(R.string.alias_contacts);
-                addAliasesPojo(contactAlias, contactApp);
-            }
+        List<String> contactApps = getAppsByCategory(pm, Intent.CATEGORY_APP_CONTACTS);
+        String contactAlias = context.getResources().getString(R.string.alias_contacts);
+        addDefaultAliases(contactAlias, contactApps);
 
-            String browserApp = getAppByCategory(pm, Intent.CATEGORY_APP_BROWSER);
-            if (browserApp != null) {
-                String webAlias = context.getResources().getString(R.string.alias_web);
-                addAliasesPojo(webAlias, browserApp);
-            }
+        List<String> browserApps = getAppsByCategory(pm, Intent.CATEGORY_APP_BROWSER);
+        String webAlias = context.getResources().getString(R.string.alias_web);
+        addDefaultAliases(webAlias, browserApps);
 
-            String mailApp = getAppByCategory(pm, Intent.CATEGORY_APP_EMAIL);
-            if (mailApp != null) {
-                String mailAlias = context.getResources().getString(R.string.alias_mail);
-                addAliasesPojo(mailAlias, mailApp);
-            }
+        List<String> mailApps = getAppsByCategory(pm, Intent.CATEGORY_APP_EMAIL);
+        String mailAlias = context.getResources().getString(R.string.alias_mail);
+        addDefaultAliases(mailAlias, mailApps);
 
-            String marketApp = getAppByCategory(pm, Intent.CATEGORY_APP_MARKET);
-            if (marketApp != null) {
-                String marketAlias = context.getResources().getString(R.string.alias_market);
-                addAliasesPojo(marketAlias, marketApp);
-            }
+        List<String> marketApps = getAppsByCategory(pm, Intent.CATEGORY_APP_MARKET);
+        String marketAlias = context.getResources().getString(R.string.alias_market);
+        addDefaultAliases(marketAlias, marketApps);
 
-            String messagingApp = getAppByCategory(pm, Intent.CATEGORY_APP_MESSAGING);
-            if (messagingApp != null) {
-                String messagingAlias = context.getResources().getString(R.string.alias_messaging);
-                addAliasesPojo(messagingAlias, messagingApp);
-            }
+        List<String> messagingApps = getAppsByCategory(pm, Intent.CATEGORY_APP_MESSAGING);
+        String messagingAlias = context.getResources().getString(R.string.alias_messaging);
+        addDefaultAliases(messagingAlias, messagingApps);
 
-            String clockApp = getClockApp(pm);
-            if (clockApp != null) {
-                String clockAlias = context.getResources().getString(R.string.alias_clock);
-                addAliasesPojo(clockAlias, clockApp);
-            }
-        }
-
+        List<String> clockApps = getClockApps(pm);
+        String clockAlias = context.getResources().getString(R.string.alias_clock);
+        addDefaultAliases(clockAlias, clockApps);
     }
 
-    private void addAliasesPojo(String aliases, String app) {
-        //add aliases only if they haven't overridden by the user (not in db)
+    private void addDefaultAliases(@NonNull String aliases, @NonNull List<String> apps) {
+        for (String app : apps) {
+            addDefaultAlias(aliases, app);
+        }
+    }
+
+    private void addDefaultAlias(String aliases, String app) {
+        // add aliases only if they haven't overridden by the user (not in db)
         if (!tagsCache.containsKey(app)) {
-            tagsCache.put(app, aliases.replace(",", " "));
+            tagsCache.put(app, aliases.replace(",", " ").trim().toLowerCase(Locale.getDefault()));
         }
     }
 
-    private String getApp(PackageManager pm, String action) {
+    @NonNull
+    private List<String> getApps(PackageManager pm, String action) {
         Intent lookingFor = new Intent(action, null);
-        return getApp(pm, lookingFor);
+        return getApps(pm, lookingFor);
     }
 
-    private String getAppByCategory(PackageManager pm, String category) {
+    @NonNull
+    private List<String> getAppsByCategory(PackageManager pm, String category) {
         Intent lookingFor = new Intent(Intent.ACTION_MAIN, null);
         lookingFor.addCategory(category);
-        return getApp(pm, lookingFor);
+        return getApps(pm, lookingFor);
     }
 
-    private String getApp(PackageManager pm, Intent lookingFor) {
+    @NonNull
+    private List<String> getApps(PackageManager pm, Intent lookingFor) {
         List<ResolveInfo> list = pm.queryIntentActivities(lookingFor, 0);
-        if (list.size() == 0) {
-            return null;
+        List<String> apps = new ArrayList<>(list.size());
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Set<String> packageNames = new HashSet<>();
+            for (ResolveInfo resolveInfo : list) {
+                packageNames.add(resolveInfo.activityInfo.packageName);
+            }
+
+            UserManager manager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+            LauncherApps launcherApps = (LauncherApps) context.getSystemService(Context.LAUNCHER_APPS_SERVICE);
+            for (android.os.UserHandle profile : manager.getUserProfiles()) {
+                UserHandle userHandle = new UserHandle(manager.getSerialNumberForUser(profile), profile);
+                for (String packageName : packageNames) {
+                    for (LauncherActivityInfo activityInfo : launcherApps.getActivityList(packageName, profile)) {
+                        String app = userHandle.addUserSuffixToString("app://" + activityInfo.getComponentName().getPackageName() + "/" + activityInfo.getComponentName().getClassName(), '/');
+                        apps.add(app);
+                    }
+                }
+            }
         } else {
-            return "app://" + list.get(0).activityInfo.applicationInfo.packageName + "/"
-                    + list.get(0).activityInfo.name;
+            for (ResolveInfo resolveInfo : list) {
+                String app = "app://" + resolveInfo.activityInfo.packageName + "/" + resolveInfo.activityInfo.name;
+                apps.add(app);
+            }
         }
+        return apps;
     }
 
-    private String getClockApp(PackageManager pm) {
-        Intent alarmClockIntent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+    @NonNull
+    private List<String> getClockApps(PackageManager pm) {
+        List<String> clockApps = new ArrayList<>();
+
+        // check for clock by intent
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Intent alarmClockIntent = new Intent(AlarmClock.ACTION_SHOW_ALARMS);
+            List<String> appsByIntent = getApps(pm, alarmClockIntent);
+            clockApps.addAll(appsByIntent);
+        }
 
         // Known clock implementations
         // See http://stackoverflow.com/questions/3590955/intent-to-launch-the-clock-application-on-android
-        String clockImpls[][] = {
+        String[][] clockImpls = {
                 // Nexus
                 {"com.android.deskclock", "com.android.deskclock.DeskClock"},
                 // Samsung
@@ -169,14 +206,13 @@ public class TagsHandler {
                 ComponentName cn = new ComponentName(packageName, className);
 
                 pm.getActivityInfo(cn, PackageManager.GET_META_DATA);
-                alarmClockIntent.setComponent(cn);
 
-                return "app://" + packageName + "/" + className;
+                clockApps.add("app://" + packageName + "/" + className);
             } catch (PackageManager.NameNotFoundException e) {
                 // Try next suggestion, this one does not exists on the phone.
             }
         }
 
-        return null;
+        return clockApps;
     }
 }

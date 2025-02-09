@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import fr.neamar.kiss.KissApplication;
 import fr.neamar.kiss.R;
-import fr.neamar.kiss.dataprovider.SearchProvider;
 
 public class ResetSearchProvidersPreference extends DialogPreference {
 
@@ -22,12 +21,9 @@ public class ResetSearchProvidersPreference extends DialogPreference {
         super.onClick(dialog, which);
         if (which == DialogInterface.BUTTON_POSITIVE) {
             PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
-                    .remove("available-search-providers").commit();
+                    .remove("available-search-providers").apply();
             Toast.makeText(getContext(), R.string.search_provider_reset_done_desc, Toast.LENGTH_LONG).show();
-            SearchProvider searchProvider = KissApplication.getDataHandler(this.getContext()).getSearchProvider();
-            if(searchProvider != null) {
-                searchProvider.reload();
-            }
+            KissApplication.getApplication(getContext()).getDataHandler().reloadSearchProvider();
         }
     }
 }

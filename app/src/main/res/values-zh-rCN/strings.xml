@@ -1,48 +1,33 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="activity_setting">KISS 设置</string>
     <string name="ui_search_hint">搜索应用，联系人，…</string>
     <string name="ui_item_contact_hint_call">呼叫</string>
-
     <string name="title_ui">用户界面</string>
     <string name="title_history">历史记录设置</string>
-    <string name="title_providers">上一次选择</string>
+    <string name="title_providers">搜索设置</string>
     <string name="title_advanced">高级设置</string>
-    <string name="menu_settings">设备设置</string>
-    <string name="no_favorites">尚无收藏。长按可添加。</string>
-
+    <string name="menu_settings">设备设置…</string>
     <string name="ui_empty_1">开始搜索任何内容</string>
     <string name="ui_empty_1_sub">应用，联系人，设置，…</string>
     <string name="ui_empty_2">始终查看您的历史记录</string>
     <string name="ui_empty_2_sub">更快访问</string>
     <string name="ui_empty_3_sub">KISS 启动器会学习您的习惯</string>
-
-    <string name="toggles_name">切换（Wi-Fi，蓝牙，…）</string>
     <string name="settings_name">设备设置</string>
-
-    <string name="search_name">网络搜索</string>
-
-    <string name="phone_name">手机号码</string>
-
+    <string name="search_name">网络搜索提供者</string>
     <string name="shortcuts_name">快捷方式</string>
     <string name="main_menu">菜单</string>
     <string name="main_clear">清空搜索栏</string>
-    <string name="main_kiss">显示收藏和应用列表</string>
+    <string name="main_kiss">显示应用列表</string>
     <string name="main_kiss_back">显示历史记录</string>
     <string name="app_name">KISS 启动器</string>
     <string name="ui_item_search">%1$s 搜索“%2$s”</string>
     <string name="ui_item_phone">呼叫“%s”</string>
     <string name="ui_item_contact_hint_message">信息</string>
     <string name="ui_empty_3">快速访问最常用应用</string>
-    <string name="toggles_on">%s 已激活</string>
-    <string name="toggles_off">%s 已停用</string>
-
     <string name="contacts_name">联系人</string>
-
-    <string name="search_desc">启用通过 Google、Bing、DuckDuckGo、StartPage 等进行搜索。</string>
     <string name="reset_name">重置历史记录</string>
-
-    <string name="reset_excluded_apps_name">重置排除应用列表</string>
+    <string name="reset_excluded_apps_name">重置排除在KISS启动器外的APP列表</string>
     <string name="reset_excluded_apps_warn">您确定要重置您的排除应用列表？</string>
     <string name="reset_warn">您确定要重置您的历史记录？</string>
     <string name="reset_favorites_name">重置您的收藏列表</string>
@@ -52,15 +37,13 @@
     <string name="history_hide_name">简约界面</string>
     <string name="history_onclick_name">触摸时显示历史记录</string>
     <string name="portrait_title">强制竖屏</string>
-    <string name="icons_hide_main">隐藏应用图标</string>
+    <string name="icons_hide_main">隐藏图标</string>
     <string name="icons_hide_desc">对慢速设备有益</string>
     <string name="root_mode_desc">如果可用，使用它休眠应用</string>
     <string name="root_mode_name">Root 模式</string>
     <string name="root_mode_error">无法取得 root 权限。</string>
-
-    <string name="icons_pack_name">主题图标 (ADW 启动器主题)</string>
+    <string name="icons_pack_name">图标包 (ADW 启动器主题)</string>
     <string name="icons_pack_default_name">系统图标</string>
-
     <string name="alias_phone">拨号,呼叫,拨叫,打电话</string>
     <string name="alias_contacts">联系人,人脉,通讯录</string>
     <string name="alias_web">互联网,网页,浏览器</string>
@@ -69,7 +52,6 @@
     <string name="alias_clock">时钟,闹钟,计时器,定时器,秒表</string>
     <string name="alias_messaging">文本消息,文字消息,撰写,编写,短信,彩信,SMS,MMS,发送,发短信</string>
     <string name="settings_prefix">"设置： "</string>
-    <string name="toggles_prefix">"切换： "</string>
     <string name="settings_airplane">飞行模式</string>
     <string name="settings_device_info">设备信息</string>
     <string name="settings_applications">应用</string>
@@ -77,135 +59,289 @@
     <string name="settings_battery">电池</string>
     <string name="settings_nfc">NFC</string>
     <string name="settings_tethering">网络共享</string>
-    <string name="toggle_wifi">Wi-Fi</string>
-    <string name="toggle_bluetooth">蓝牙</string>
-    <string name="toggle_silent">静音</string>
-    <string name="toggle_data">网络数据</string>
-    <string name="toggle_sync">同步</string>
-    <string name="toggle_torch">手电筒</string>
-    <string name="toggle_autorotate">自动旋转</string>
-    <string name="menu_wallpaper">更新壁纸</string>
-    <string name="application_not_found">喔噢...无法启动该应用。</string>
+    <string name="menu_wallpaper">更新壁纸…</string>
+    <string name="application_not_found">喔噢…无法启动该应用。</string>
     <string name="history_erased">历史记录已清除。</string>
     <string name="favorites_erased">收藏已清除。</string>
     <string name="menu_favorites_add">添加到收藏</string>
     <string name="excluded_app_list_erased">已排除应用已清除。</string>
     <string name="excluded_app_list_added">应用已从 KISS 中排除。在 KISS 设置中可以重置</string>
-
     <string name="removed_item">已移除</string>
     <string name="menu_remove">从历史记录中移除</string>
-    <string name="menu_exclude">从 KISS 中排除应用</string>
+    <string name="menu_exclude">排除应用 …</string>
     <string name="menu_app_details">应用信息</string>
     <string name="menu_app_uninstall">卸载</string>
     <string name="menu_app_hibernate">休眠</string>
-
     <string name="toast_hibernate_completed">%s 已休眠，重启它即可唤醒。</string>
     <string name="toast_hibernate_error">%s 未能休眠。</string>
     <string name="menu_contact_copy_phone">复制手机号码</string>
-    <string name="theme_name">主题界面</string>
-    <string name="menu_phone_create">创建联系人</string>
-
+    <string name="theme_name">主题</string>
+    <string name="menu_phone_create">创建联系人…</string>
     <string name="toast_favorites_added">%s 已添加到收藏</string>
-
-    <string name="order_apps_name">应用列表排序方式</string>
-    <string name="enable_sms">在历史记录中显示收到的短信</string>
     <string name="enable_phone">在历史记录中显示收到的来电</string>
     <string name="enable_app">在历史记录中显示新安装的应用</string>
-    <string name="shortcut_added">快捷方式已添加到 KISS。</string>
-
     <string name="restart_desc">修复主题问题和新联系人不显示</string>
     <string name="restart_name">重启 KISS</string>
     <string name="restart_warn">您确定要重启 KISS？如果 KISS 不是您的默认启动器，该应用将只是退出。</string>
-
     <string name="items_title">%d 项</string>
-
     <string name="freeze_history_name">冻结历史记录</string>
-    <string name="freeze_history_warn">您确定要冻结历史记录并禁用进一步更新？您的历史记录将不再变更。</string>
-
-    <string name="ui_excluded_apps">查看或编辑您的已排除应用</string>
-    <string name="ui_excluded_apps_dialog_title">取消选择您不想包含的应用</string>
-    <string name="ui_excluded_apps_not_found">没有应用被排除</string>
-    <string name="search_providers_title">选择网络搜索提供商</string>
+    <string name="freeze_history_warn">您确定要冻结历史记录并关闭进一步更新？您的历史记录将不再变更。</string>
+    <string name="ui_excluded_apps">查看或编辑排除在KISS启动器外的APP</string>
+    <string name="ui_excluded_apps_dialog_title">选择不想包含的应用</string>
+    <string name="search_providers_title">选择网络搜索提供者</string>
     <string name="history_mode_name">历史模式</string>
-    <string name="history_mode_desc">选择显示历史记录的方法</string>
+    <string name="history_mode_desc">选择如何对历史记录进行分类</string>
     <string name="menu_shortcut_remove">移除快捷方式</string>
-
     <string name="enable_favorites_bar">在搜索栏上方显示收藏</string>
-    <string name="exclude_favorites">历史记录中排除收藏</string>
-    <string name="favorites_hide">隐藏收藏栏</string>
-<string name="settings_storage">存储</string>
+    <string name="exclude_favorites_history">历史记录中排除收藏</string>
+    <string name="favorites_hide">初始隐藏收藏栏</string>
+    <string name="settings_storage">存储</string>
     <string name="settings_dev">开发者设置</string>
     <string name="settings_accessibility">无障碍功能</string>
-    <string name="keyboard_workaround_name">键盘建议修正</string>
-    <string name="keyboard_workaround_desc">显示建议时避免不能用的软键盘（如 SwiftKey™）</string>
-    <string name="app_will_restart">您更改了某些重要设置，本应用需要重启。</string>
     <string name="alternate_history_inputs">备用历史记录输入</string>
     <string name="keyboard_options">键盘选项</string>
     <string name="misc">杂项</string>
-
-<string name="title_settings">设置</string>
     <string name="settings_sound">声音和音量</string>
     <string name="settings_display">显示</string>
     <string name="ui_item_visit">访问“%1$s”</string>
-    <string name="stub_app_tag">标签示例</string>
     <string name="menu_tags_edit">添加或编辑标签</string>
     <string name="tags_confirmation_added">标签集</string>
     <string name="toast_favorites_removed">%s 已从收藏移除</string>
     <string name="menu_favorites_remove">移除收藏</string>
-
-<string name="tags_add_title">添加标签，用空格分隔</string>
+    <string name="tags_add_title">添加标签，用空格分隔</string>
     <string name="default_launcher_title">更改默认启动器</string>
     <string name="default_launcher_warn">在更改默认启动器后，您将被带到主屏幕。确定继续吗？
 
 注意：如果您没有看到“始终”选项，请在选完所需的启动器后按下“主屏幕”按钮。</string>
-
-    <string name="tags_visible">显示应用标签</string>
+    <string name="tags_visible">显示标签</string>
     <string name="share">分享到…</string>
-
-<string name="main_color">主要颜色</string>
+    <string name="main_color">主要颜色</string>
     <string name="notification_bar_color">通知栏颜色</string>
-
-
-    <string name="color_picker_default_title" msgid="1248663997452044787">"选择颜色"</string>
-    <string name="color_swatch_description" msgid="2883438431173736180">"颜色 <xliff:g id="COLOR_INDEX">%1$d</xliff:g>"</string>
-    <string name="color_swatch_description_selected" msgid="5020921249944943124">"已选择颜色 <xliff:g id="COLOR_INDEX">%1$d</xliff:g>"</string>
-<string name="number_ofdisplay_items">搜索和历史中最大结果数量</string>
-
+    <string name="color_picker_default_title">"选择颜色"</string>
+    <string name="color_swatch_description">颜色 %1$d%1$d</string>
+    <string name="color_swatch_description_selected">已选择颜色 %1$d%1$d</string>
+    <string name="number_of_display_items">搜索和历史中最大结果数量</string>
     <string name="color_transparent_dark">透明黑</string>
     <string name="color_transparent_white">透明白</string>
     <string name="color_transparent">透明</string>
-
-
-
-    <string name="large_search_bar">大搜索栏</string>
-<string name="transparent_search_bar">透明搜索栏</string>
+    <string name="large_search_bar">更大搜索栏</string>
+    <string name="transparent_search_bar">透明搜索栏</string>
     <string name="transparent_favorites_bar">透明收藏栏</string>
-
-    <string name="menu_widget_add">(测试中) 添加小工具</string>
+    <string name="menu_widget_add">添加小工具</string>
     <string name="menu_widget_remove">移除小工具</string>
     <string name="rate_the_app">评价本应用</string>
-
-<string name="lwp_touch">发送触摸事件到壁纸</string>
+    <string name="lwp_touch">发送触摸事件到壁纸</string>
     <string name="lwp_drag">为壁纸模拟拖动事件</string>
     <string name="lwp_drag_desc">发送多点触摸事件</string>
     <string name="wp_drag_animate">滚动壁纸</string>
-    <string name="wp_drag_animate_desc">水平拖动时滚动壁纸</string>
-    <string name="search_providers_delete">删除搜索提供者</string>
-    <string name="custom_search_provider">添加搜索提供者</string>
-    <string name="search_provider_reset">重置搜索提供者</string>
+    <string name="wp_drag_animate_desc">左右拖动滚动壁纸</string>
+    <string name="search_providers_delete">删除网络搜索提供者</string>
+    <string name="custom_search_provider">添加网络搜索提供者</string>
+    <string name="search_provider_reset">重置网络搜索提供者</string>
     <string name="search_provider_reset_desc">是否重置搜索提供者列表？</string>
     <string name="search_provider_reset_done_desc">搜索提供者列表已重置</string>
     <string name="search_provider_name">提供者名称</string>
     <string name="search_provider_added">搜索提供者已添加。</string>
     <string name="search_provider_deleted">搜索提供者已删除。</string>
     <string name="search_provider_error_char">请勿使用 | 字符</string>
-    <string name="search_provider_error_placeholder">请使用 {q} 代表搜索内容</string>
+    <string name="search_provider_error_placeholder">请使用 %s 代表搜索内容</string>
     <string name="search_provider_error_url">请提供一个有效的 URL</string>
-    <string name="search_provider_error_exists">此名称的提供者已存在</string>
-
-
+    <string name="search_provider_error_exists">同名提供者已存在</string>
     <string name="pref_hide_navbar">隐藏导航栏</string>
-    <string name="pref_hide_navbar_desc">隐藏导航栏并启用 KitKat (4.4) 起支持的沉浸模式</string>
+    <string name="pref_hide_navbar_desc">隐藏导航栏并开启沉浸模式</string>
     <string name="pref_hide_statusbar">隐藏状态栏</string>
-    <string name="pref_hide_statusbar_desc">隐藏状态栏并启用 KitKat (4.4) 起支持的沉浸模式</string>
-    </resources>
+    <string name="pref_hide_statusbar_desc">隐藏通知栏并开启沉浸模式</string>
+    <string name="history_settings_summary">重置您的历史记录、排除应用等…</string>
+    <string name="user_interface_summary">主题、透明度和颜色</string>
+    <string name="providers_summary">调整搜索结果，添加自定义搜索引擎等…</string>
+    <string name="title_ux">用户体验</string>
+    <string name="user_experience_summary">简约用户界面、键盘设置等…</string>
+    <string name="title_favorites">收藏夹设置</string>
+    <string name="history_favorites_summary">重置您的收藏夹，删除收藏夹栏等…</string>
+    <string name="freeze_history_summary">保持历史记录不变，直至取消选中</string>
+    <string name="title_wallpaper">动态壁纸互动</string>
+    <string name="enable_favorites_bar_summary_off">只在按下 KISS 图标时显示收藏</string>
+    <string name="enable_favorites_bar_summary_on">在搜索栏上方显示收藏</string>
+    <string name="get_help">获取帮助</string>
+    <string name="permission_denied">权限已被拒绝</string>
+    <string name="rounded_list">圆角列表</string>
+    <string name="rounded_bars">圆角栏</string>
+    <string name="colors">颜色</string>
+    <string name="black_notification_icons">显示黑色的通知图标</string>
+    <string name="shortcuts_no_host_permission">KISS 不是您的主启动器，无法访问您的快捷方式。</string>
+    <string name="ctx_menu">KISS 菜单</string>
+    <string name="pref_tags_menu">菜单中添加标签</string>
+    <string name="popup_tags_title">可用标签</string>
+    <string name="popup_tags_actions">可用动作</string>
+    <string name="show_history">显示历史</string>
+    <string name="reset_excluded_from_history_apps_name">重置排除在历史外的APP列表</string>
+    <string name="reset_excluded_from_history_apps_warn">确定重置您的历史应用列表的排除吗？</string>
+    <string name="settings_excluded_apps">排除的项目</string>
+    <string name="ui_excluded_from_history_apps">查看或编辑从历史中排除的APP</string>
+    <string name="wp_animate_center">壁纸居中</string>
+    <string name="wp_animate_center_desc">壁纸在滚动后将返回中心</string>
+    <string name="wp_animate_sides">壁纸侧贴</string>
+    <string name="wp_animate_sides_desc">壁纸在滚动后将贴靠左侧或右侧</string>
+    <string name="menu_exclude_kiss">在 KISS 中</string>
+    <string name="menu_exclude_history">在历史记录中</string>
+    <string name="pref_hide_circle">隐藏 KISS 圆环</string>
+    <string name="pref_hide_circle_desc">按钮仍然可以工作，但是它们会不可见。</string>
+    <string name="screen_toggle_tags">自定义标签菜单</string>
+    <string name="pref_toggle_tags_select">在菜单中显示的标签</string>
+    <string name="pref_tags_menu_dismiss">选择后关闭标签菜单</string>
+    <string name="unable_to_initialize_shortcuts">无法初始化快捷方式。 KISS 你的默认启动器吗？</string>
+    <string name="excluded_app_history_added">应用已从历史中排除。通过KISS设置重置</string>
+    <string name="show_untagged">显示无标签应用</string>
+    <string name="pref_show_untagged">显示无标签行为</string>
+    <string name="contacts_call_on_click">点击来呼叫联系人</string>
+    <string name="keyboard_suggestions">启用自动完成/建议</string>
+    <string name="swap_kiss_button_with_menu">在右边显示KISS按钮</string>
+    <string name="notification_support">在有通知的APP上显示一个点</string>
+    <string name="notification_dialog">在以下菜单内选中KISS以启用该功能.</string>
+    <string name="cant_pin_shortcut">无法添加快捷方式。KISS 是您的默认启动器吗？</string>
+    <string name="search_results_options">搜索结果</string>
+    <string name="search_provider_toggle">网络搜索提供者链接</string>
+    <string name="copy_confirmation">已复制到剪贴板</string>
+    <string name="search_provider_default">默认网络搜索引擎</string>
+    <string name="regenerate_shortcuts">重置快捷方式</string>
+    <string name="regenerate_shortcuts_desc">您要重置快捷方式列表吗？</string>
+    <string name="regenerate_shortcuts_done">快捷方式已被重置</string>
+    <string name="pref_fav_tags_select">收藏栏要显示的标签</string>
+    <string name="pref_fav_tags_drawable_desc">在收藏栏显示大量标签会占用更多内存</string>
+    <string name="pref_fav_tags_drawable">生成收藏标签图标</string>
+    <string name="menu_app_store">在商店中查看</string>
+    <string name="menu_widget_move_down">下移</string>
+    <string name="menu_widget_move_up">抬高</string>
+    <string name="menu_size_up">放大</string>
+    <string name="menu_size_down">减小</string>
+    <string name="large_favorites_bar">使用更大的收藏栏</string>
+    <string name="double_tap_to_lock">点按两次锁定屏幕</string>
+    <string name="enable_double_tap_to_lock">双击锁定需要 Android Accessibility API。 不处理任何数据，也不存储任何数据。 要使用此功能，请在以下屏幕中启用 KISS。</string>
+    <string name="gesture_down_name">下滑操作</string>
+    <string name="gesture_up_name">上滑操作</string>
+    <string name="lock_service_description">从KISS启动器锁屏</string>
+    <string name="gestures">手势</string>
+    <string name="show_subicons">在快捷方式上显示应用图标</string>
+    <string name="gesture_history">显示历史</string>
+    <string name="gesture_apps">显示应用列表</string>
+    <string name="gesture_notifications">显示通知阴影</string>
+    <string name="gesture_keyboard">显示键盘</string>
+    <string name="gesture_do_nothing">什么也不做</string>
+    <string name="history_alphabetically">字母顺序</string>
+    <string name="history_adaptive">适应用户使用</string>
+    <string name="history_frequency">访问频率</string>
+    <string name="history_frecency">近期访问频率</string>
+    <string name="history_recency">最近访问优先</string>
+    <string name="theme_result_color">结果的文本颜色</string>
+    <string name="theme_separator">结果分隔器</string>
+    <string name="theme_amoled">AMOLED暗色</string>
+    <string name="theme_semi_dark">暗色半透明</string>
+    <string name="theme_semi_light">半透明</string>
+    <string name="theme_dark_transparent">暗色透明</string>
+    <string name="theme_light_transparent">透明</string>
+    <string name="theme_dark">暗色</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_customize_enabled">已启用</string>
+    <string name="theme_customize_disabled">已禁用</string>
+    <string name="theme_customize_default">默认主题</string>
+    <string name="theme_shadow">文本轮廓(阴影)</string>
+    <string name="theme_customisation">高级主题自定义</string>
+    <string name="hide_search_bar_hint">从搜索栏中删除提示文字</string>
+    <string name="theme_wallpaper">壁纸</string>
+    <string name="gesture_right_name">右滑操作</string>
+    <string name="gesture_left_name">左滑操作</string>
+    <string name="gesture_long_press_name">长按操作</string>
+    <string name="custom_icon_badged">带徽章的</string>
+    <string name="contacts_shape">联系人形状</string>
+    <string name="icons_category">图标</string>
+    <string name="contacts_shape_summary">联系人图标的形状</string>
+    <string name="contact_pack_mask">塑造联系人图标的形状</string>
+    <string name="contact_pack_mask_summary">对联系人使用图标包蒙版</string>
+    <string name="force_shape_summary">在非自适应图标上使用自适应蒙版</string>
+    <string name="force_shape">强制背景形状</string>
+    <string name="force_adaptive_summary">对于非自适应图标，缩小比例并放置在白色背景上</string>
+    <string name="force_adaptive">强制图标背景</string>
+    <string name="adaptive_shape_name">图标的背景形状</string>
+    <string name="custom_name_set_default">默认名称</string>
+    <string name="custom_name_rename">重命名</string>
+    <string name="custom_icon_preview">预览</string>
+    <string name="custom_icon_badged_adaptive_fill">徽章自适应填充</string>
+    <string name="custom_icon_badged_adaptive">徽章自适应</string>
+    <string name="custom_icon_activity_adaptive_fill">活动自适应填充</string>
+    <string name="custom_icon_activity_adaptive">活动自适应</string>
+    <string name="custom_icon_activity">活动</string>
+    <string name="custom_icon_application_adaptive_fill">应用自适应填充</string>
+    <string name="custom_icon_application_adaptive">应用自适应</string>
+    <string name="custom_icon_application">应用</string>
+    <string name="default_icon">默认图标</string>
+    <string name="custom_icon_hint">按名称过滤</string>
+    <string name="app_rename_confirmation">应用程序名称现在是 %s</string>
+    <string name="app_rename_title">自定义名称</string>
+    <string name="menu_custom_icon">自定义图标</string>
+    <string name="menu_app_rename">重命名</string>
+    <string name="loading">加载中…</string>
+    <string name="exclude_favorites_apps">从应用列表中排除收藏</string>
+    <string name="custom_icon_badged_with_pack">徽章包</string>
+    <string name="custom_icon_activity_with_pack">活动包</string>
+    <string name="custom_icon_application_with_pack">应用包</string>
+    <string name="import_settings_dialog">这将用剪贴板内容覆盖当前设置和标签。 现有标签将被删除。 你确定吗？</string>
+    <string name="import_settings">导入设置和标签</string>
+    <string name="export_settings">导出设置和标签</string>
+    <string name="clipboard_warning_dialog">这将覆盖你的剪贴板内容。</string>
+    <string name="title_import_export">导入 &amp; 导出</string>
+    <string name="theme_bar_color">收藏栏和搜索栏颜色</string>
+    <string name="gesture_homescreen">转到主屏幕</string>
+    <string name="history_onkeyboard_desc">当软键盘可见时显示历史记录</string>
+    <string name="shape_system_default">系统默认</string>
+    <string name="shape_app">应用程序形状</string>
+    <string name="shape_circle">圆形</string>
+    <string name="shape_square">方形</string>
+    <string name="shape_squircle">方圆形</string>
+    <string name="shape_teardrop_bottom_right">右下角泪珠</string>
+    <string name="shape_teardrop_bottom_left">左下角泪珠</string>
+    <string name="shape_teardrop_top_left">左上角泪珠</string>
+    <string name="shape_teardrop_top_right">右上角泪珠</string>
+    <string name="shape_teardrop_random">随机泪珠</string>
+    <string name="shape_octagon">八角形</string>
+    <string name="shape_hexagon">六边形</string>
+    <string name="adaptive_shape_summary">应用程序图标的形状</string>
+    <string name="history_onkeyboard_name">同时显示键盘和历史</string>
+    <string name="shape_rounded_rectangle">圆角矩形</string>
+    <string name="ui_item_open">打开 “%1$s”</string>
+    <string name="gesture_launch_pojo">启动…</string>
+    <string name="excluded_apps_toggle">在搜索中显示已排除的应用</string>
+    <string name="always_default_web_search_on_enter">始终在输入时触发默认网络搜索提供程序</string>
+    <string name="results_size">结果展示尺寸</string>
+    <string name="large_result_list_margins">更大的列表边距</string>
+    <string name="reset_excluded_app_shortcuts_name">重置不显示快捷方式的应用的列表</string>
+    <string name="ui_excluded_from_shortcuts_apps">查看或编辑不显示快捷方式的应用</string>
+    <string name="reset_excluded_app_shortcuts_warn">你的确要重置不显示快捷方式的应用的列表吗？</string>
+    <string name="color_system">系统颜色</string>
+    <string name="icons_themed_name">主题图标</string>
+    <string name="icons_themed_summary">用系统颜色对图标进行着色（测试）</string>
+    <string name="menu_shortcut_pin">固定快捷方式</string>
+    <string name="search_provider_error_uri_cannot_be_handle">提供的 URI 无法被你设备上的任何应用所处理。</string>
+    <string name="import_settings_done">已导入设置。</string>
+    <string name="gesture_menu">显示菜单</string>
+    <string name="import_settings_error">无法导入设置。</string>
+    <string name="import_settings_upgrade_kiss">在导入这些设置前请先升级你的 KISS 版本。</string>
+    <string name="export_settings_done">已将设置导出到剪贴板。</string>
+    <string name="import_settings_version_missing">无法导入设置，未检测到有效的版本字符串。</string>
+    <string name="results_size_medium">中等</string>
+    <string name="results_size_default">默认</string>
+    <string name="import_settings_save_not_possible">无法保存设置。</string>
+    <string name="export_settings_error">无法导出设置。</string>
+    <string name="gesture_quicksettings">显示快速设置</string>
+    <string name="gesture_hide_keyboard">隐藏键盘</string>
+    <string name="results_size_smallest">最小</string>
+    <string name="results_size_small">小</string>
+    <string name="tags_category">标签</string>
+    <string name="tagged_result_sort_mode_name">标签结果排序模式</string>
+    <string name="tagged_result_sort_mode_default">默认。类似历史记录模式</string>
+    <string name="tagged_result_sort_mode_desc">选择按标签显示时应该如何排列结果</string>
+    <string name="enable_notification_history">在历史记录中显示有新通知的应用</string>
+    <string name="history_time">在每天同一时间访问</string>
+    <string name="contact_mime_types_summary">可以在搜索结果中展示的所有联系人类型</string>
+    <string name="contact_mime_types_title">选择要显示的联系人</string>
+    <string name="menu_widget_settings">设置</string>
+</resources>

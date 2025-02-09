@@ -1,32 +1,97 @@
 package fr.neamar.kiss.pojo;
 
 import android.net.Uri;
+import android.text.TextUtils;
 
+import fr.neamar.kiss.normalizer.PhoneNormalizer;
 import fr.neamar.kiss.normalizer.StringNormalizer;
 
-public class ContactsPojo extends Pojo {
-    public String lookupKey = "";
+public final class ContactsPojo extends Pojo {
+    public final String lookupKey;
 
-    public String phone = "";
+    public String phone;
     //phone without special characters
-    public String phoneSimplified = "";
-    public Uri icon = null;
+    public StringNormalizer.Result normalizedPhone;
+    // Is this number a home (local) number ?
+    private boolean homeNumber;
+
+    public final Uri icon;
 
     // Is this a primary phone?
-    public Boolean primary = false;
-
-    // How many times did we phone this contact?
-    public int timesContacted = 0;
+    public final boolean primary;
 
     // Is this contact starred ?
-    public Boolean starred = false;
+    public final boolean starred;
 
-    // Is this number a home (local) number ?
-    public Boolean homeNumber = false;
+    private String nickname = null;
+    // nickname without special characters
+    public StringNormalizer.Result normalizedNickname = null;
 
-    public String nickname = "";
+    public StringNormalizer.Result normalizedNameAlternative = null;
+    public StringNormalizer.Result normalizedPhoneticName = null;
+
+    private ContactData contactData;
+
+    public ContactsPojo(String id, String lookupKey, Uri icon, boolean primary, boolean starred) {
+        super(id);
+        this.lookupKey = lookupKey;
+        this.icon = icon;
+        this.primary = primary;
+        this.starred = starred;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
 
     public void setNickname(String nickname) {
-        this.nickname = StringNormalizer.normalize(nickname);
+        if (!TextUtils.isEmpty(nickname)) {
+            // Set the actual user-friendly name
+            this.nickname = nickname;
+            this.normalizedNickname = StringNormalizer.normalizeWithResult(this.nickname, false);
+        } else {
+            this.nickname = null;
+            this.normalizedNickname = null;
+        }
+    }
+
+    public void setPhone(String phone, boolean homeNumber) {
+        if (!TextUtils.isEmpty(phone)) {
+            this.phone = phone;
+            this.normalizedPhone = PhoneNormalizer.simplifyPhoneNumber(phone);
+            this.homeNumber = homeNumber;
+        } else {
+            this.phone = null;
+            this.normalizedPhone = null;
+            this.homeNumber = false;
+        }
+    }
+
+    public boolean isHomeNumber() {
+        return homeNumber;
+    }
+
+    public void setIm(ContactData contactData) {
+        this.contactData = contactData;
+    }
+
+    public ContactData getContactData() {
+        return contactData;
+    }
+
+    public void setNameAlternative(String nameAlternative) {
+        if (!TextUtils.isEmpty(nameAlternative)) {
+            this.normalizedNameAlternative = StringNormalizer.normalizeWithResult(nameAlternative, false);
+        } else {
+            this.normalizedNameAlternative = null;
+        }
+    }
+
+    public void setPhoneticName(String phoneticName) {
+        if (!TextUtils.isEmpty(phoneticName)) {
+            this.normalizedPhoneticName = StringNormalizer.normalizeWithResult(phoneticName, false);
+        } else {
+            this.normalizedPhoneticName = null;
+        }
     }
 }

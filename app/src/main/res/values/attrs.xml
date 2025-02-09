@@ -2,8 +2,19 @@
 <resources>
     <attr name="listBackgroundColor" format="reference|color" />
     <attr name="resultColor" format="reference|color" />
+    <attr name="resultShadowColor" format="reference|color" />
     <attr name="searchColor" format="reference|color" />
     <attr name="searchBackgroundColor" format="reference|color" />
+    <attr name="searchBackgroundOutline" format="reference|color" />
     <attr name="dividerDrawable" format="reference" />
     <attr name="appSelectableItemBackground" format="reference" />
+    <attr name="textShadowRadius" format="reference|float" />
+
+    <attr name="resultHeight" format="reference|dimension" />
+    <attr name="resultIconSize" format="reference|dimension" />
+    <attr name="resultNotificationDotSize" format="reference|dimension" />
+    <attr name="resultSubIconSize" format="reference|dimension" />
+    <attr name="resultTitleSize" format="reference|dimension" />
+    <attr name="resultSubtitleSize" format="reference|dimension" />
+    <attr name="resultButtonHeight" format="reference|dimension" />
 </resources>

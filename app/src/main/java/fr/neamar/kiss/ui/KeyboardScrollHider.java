@@ -7,17 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 
+import androidx.annotation.NonNull;
+
 /**
- * Utility class for automatically hiding the keyboard when scrolling down a {@see ListView},
+ * Utility class for automatically hiding the keyboard when scrolling down a {@link android.widget.ListView},
  * keeping the position of the finger on the list stable
  */
 public class KeyboardScrollHider implements View.OnTouchListener {
     private final static int THRESHOLD = 24;
 
-    private KeyboardHandler handler;
-    private BlockableListView list;
-    private View listParent;
-    private BottomPullEffectView pullEffect;
+    private final KeyboardHandler handler;
+    private final BlockableListView list;
+    private final View listParent;
+    private final BottomPullEffectView pullEffect;
     private int listHeightInitial = 0;
 
     private float offsetYStart = 0;
@@ -29,14 +31,6 @@ public class KeyboardScrollHider implements View.OnTouchListener {
     private boolean resizeDone = false;
 
     private boolean scrollBarEnabled = true;
-
-    public interface KeyboardHandler {
-        void showKeyboard();
-
-        void hideKeyboard();
-
-        void applyScrollSystemUi();
-    }
 
     public KeyboardScrollHider(KeyboardHandler handler, BlockableListView list, BottomPullEffectView pullEffect) {
         this.handler = handler;
@@ -174,16 +168,13 @@ public class KeyboardScrollHider implements View.OnTouchListener {
                     );
                     animator.setDuration(250);
                     animator.setInterpolator(new AccelerateInterpolator());
-                    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                        @Override
-                        public void onAnimationUpdate(ValueAnimator animator) {
-                            int height = (int) (animator.getAnimatedValue());
-                            KeyboardScrollHider.this.setListLayoutHeight(height);
-                        }
+                    animator.addUpdateListener(animation -> {
+                        int height = (int) animation.getAnimatedValue();
+                        KeyboardScrollHider.this.setListLayoutHeight(height);
                     });
                     animator.addListener(new Animator.AnimatorListener() {
                         @Override
-                        public void onAnimationStart(Animator animation) {
+                        public void onAnimationStart(@NonNull Animator animation) {
                             // Give the list view the control over it's input back
                             KeyboardScrollHider.this.list.unblockTouchEvents();
 
@@ -192,16 +183,16 @@ public class KeyboardScrollHider implements View.OnTouchListener {
                         }
 
                         @Override
-                        public void onAnimationEnd(Animator animation) {
+                        public void onAnimationEnd(@NonNull Animator animation) {
                             KeyboardScrollHider.this.handleResizeDone();
                         }
 
                         @Override
-                        public void onAnimationCancel(Animator animation) {
+                        public void onAnimationCancel(@NonNull Animator animation) {
                         }
 
                         @Override
-                        public void onAnimationRepeat(Animator animation) {
+                        public void onAnimationRepeat(@NonNull Animator animation) {
                         }
                     });
                     animator.start();
@@ -213,7 +204,7 @@ public class KeyboardScrollHider implements View.OnTouchListener {
         }
 
         // Hide the keyboard if the user has scrolled down by about half a result item
-        if ((this.offsetYCurrent - this.offsetYStart) > THRESHOLD) {
+        if (isScrolled()) {
             this.handler.hideKeyboard();
             this.handler.applyScrollSystemUi();
         }
@@ -221,16 +212,22 @@ public class KeyboardScrollHider implements View.OnTouchListener {
         return false;
     }
 
-    public void fixScroll()
-    {
-        this.list.post( new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                resizeDone = false;
-                handleResizeDone();
-            }
-        } );
+    public void fixScroll() {
+        this.list.post(() -> {
+            resizeDone = false;
+            handleResizeDone();
+        });
+    }
+
+    public boolean isScrolled() {
+        return (this.offsetYCurrent - this.offsetYStart) > THRESHOLD;
+    }
+
+    public interface KeyboardHandler {
+        void showKeyboard();
+
+        void hideKeyboard();
+
+        void applyScrollSystemUi();
     }
 }

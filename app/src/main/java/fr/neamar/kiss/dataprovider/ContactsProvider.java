@@ -1,38 +1,72 @@
 package fr.neamar.kiss.dataprovider;
 
 import android.database.ContentObserver;
+import android.net.Uri;
 import android.provider.ContactsContract;
+import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.regex.Pattern;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.Collection;
+import java.util.Collections;
 
 import fr.neamar.kiss.loader.LoadContactsPojos;
 import fr.neamar.kiss.normalizer.PhoneNormalizer;
 import fr.neamar.kiss.normalizer.StringNormalizer;
 import fr.neamar.kiss.pojo.ContactsPojo;
-import fr.neamar.kiss.pojo.Pojo;
+import fr.neamar.kiss.searcher.Searcher;
+import fr.neamar.kiss.utils.FuzzyScore;
+import fr.neamar.kiss.utils.Permission;
 
 public class ContactsProvider extends Provider<ContactsPojo> {
-
-    private ContentObserver cObserver = new ContentObserver(null) {
+    protected static final String TAG = ContactsProvider.class.getSimpleName();
+    private final ContentObserver cObserver = new ContentObserver(null) {
 
         @Override
         public void onChange(boolean selfChange) {
+            onChange(selfChange, null);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, @Nullable Uri uri) {
+            onChange(selfChange, uri, 0);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, @Nullable Uri uri, int flags) {
+            onChange(selfChange, Collections.singletonList(uri), flags);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, @NonNull Collection<Uri> uris, int flags) {
             //reload contacts
+            Log.v(TAG, "Contacts changed, reloading provider: " + uris + ", flags: " + flags);
             reload();
         }
     };
 
     @Override
     public void reload() {
+        super.reload();
         this.initialize(new LoadContactsPojos(this));
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        //register content observer
-        getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI, false, cObserver);
+        // register content observer if we have permission
+        if (Permission.checkPermission(this, Permission.PERMISSION_READ_CONTACTS)) {
+            getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI, false, cObserver);
+        } else {
+            Permission.askPermission(Permission.PERMISSION_READ_CONTACTS, new Permission.PermissionResultListener() {
+                @Override
+                public void onGranted() {
+                    // Great! Reload the contact provider. We're done :)
+                    reload();
+                }
+            });
+        }
     }
 
     @Override
@@ -42,104 +76,65 @@ public class ContactsProvider extends Provider<ContactsPojo> {
         getContentResolver().unregisterContentObserver(cObserver);
     }
 
-    public ArrayList<Pojo> getResults(String query) {
-        query = StringNormalizer.normalize(query);
-        ArrayList<Pojo> results = new ArrayList<>();
+    @Override
+    public void requestResults(String query, Searcher searcher) {
+        StringNormalizer.Result queryNormalized = StringNormalizer.normalizeWithResult(query, false);
 
-        // Search people with composed names, e.g "jean-marie"
-        // (not part of the StringNormalizer class, since we want to keep dashes on other providers)
-        query = query.replaceAll("-", " ");
+        if (queryNormalized.codePoints.length == 0) {
+            return;
+        }
 
-        int relevance;
-        int matchPositionStart;
-        int matchPositionEnd;
-        String contactNameNormalized;
+        FuzzyScore fuzzyScore = new FuzzyScore(queryNormalized.codePoints);
 
-        final String queryWithSpace = " " + query;
-        for (ContactsPojo contact : pojos) {
-            relevance = 0;
-            contactNameNormalized = contact.nameNormalized;
-            boolean alias = false;
+        for (ContactsPojo pojo : getPojos()) {
+            FuzzyScore.MatchInfo matchInfo;
+            boolean match = false;
 
-            matchPositionStart = 0;
-            matchPositionEnd = 0;
-            if (contactNameNormalized.startsWith(query)) {
-                relevance = 50;
-                matchPositionEnd = matchPositionStart + query.length();
-            } else if ((matchPositionStart = contactNameNormalized.indexOf(queryWithSpace)) > -1) {
-                relevance = 40;
-                matchPositionEnd = matchPositionStart + queryWithSpace.length();
-            } else if (contact.nickname.contains(query)) {
-                alias = true;
-                contact.displayName = contact.name
-                        + " <small>("
-                        + contact.nickname.replaceFirst(
-                        "(?i)(" + Pattern.quote(query) + ")", "{$1}")
-                        + ")</small>";
-                relevance = 30;
-            } else if (query.length() > 2) {
-                if ((matchPositionStart = contactNameNormalized.indexOf(query)) > -1) {
-                    relevance = 15;
-                    matchPositionEnd = matchPositionStart + query.length();
-                } else {
-                    matchPositionStart = 0;
-                    matchPositionEnd = 0;
-                    if (contact.phoneSimplified.startsWith(query)) {
-                        relevance = 10;
-                    } else if (contact.phoneSimplified.contains(query)) {
-                        relevance = 5;
-                    }
+            if (pojo.normalizedName != null) {
+                matchInfo = fuzzyScore.match(pojo.normalizedName.codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            // Match also for alternative name, see https://developer.android.com/reference/android/provider/ContactsContract.ContactNameColumns#DISPLAY_NAME_ALTERNATIVE
+            // This may result in better match but eventually some missing highlighting
+            if (pojo.normalizedNameAlternative != null) {
+                matchInfo = fuzzyScore.match(pojo.normalizedNameAlternative.codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            // Match also for phonetic name
+            // This may result in better match but eventually some missing highlighting
+            if (pojo.normalizedPhoneticName != null) {
+                matchInfo = fuzzyScore.match(pojo.normalizedPhoneticName.codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            if (pojo.normalizedNickname != null) {
+                matchInfo = fuzzyScore.match(pojo.normalizedNickname.codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            if (!match && queryNormalized.length() > 2 && pojo.normalizedPhone != null) {
+                // search for the phone number
+                matchInfo = fuzzyScore.match(pojo.normalizedPhone.codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            if (!match && queryNormalized.length() > 2 && pojo.getContactData() != null && pojo.getContactData().getNormalizedIdentifier() != null) {
+                // search for IM identifier
+                matchInfo = fuzzyScore.match(pojo.getContactData().getNormalizedIdentifier().codePoints);
+                match = pojo.updateMatchingRelevance(matchInfo, match);
+            }
+
+            if (match) {
+                if (pojo.starred) {
+                    pojo.relevance += 40;
                 }
-            }
 
-            if (relevance > 0) {
-                // Increase relevance according to number of times the contacts
-                // was phoned :
-                relevance += contact.timesContacted;
-                // Increase relevance for starred contacts:
-                if (contact.starred)
-                    relevance += 30;
-                // Decrease for home numbers:
-                if (contact.homeNumber)
-                    relevance -= 1;
-
-                if (!alias)
-                    contact.setDisplayNameHighlightRegion(matchPositionStart, matchPositionEnd);
-                contact.relevance = relevance;
-                results.add(contact);
-
-                // Circuit-breaker to avoid spending too much time
-                // building results
-                // Important: this is made possible because LoadContactsPojos already
-                // returns contacts sorted by popularity, so the first items should be the most useful ones.
-                // (short queries, e.g. "a" with thousands of contacts,
-                // can return hundreds of results which are then slow to sort and display)
-                if (results.size() > 50) {
-                    break;
-                }
+                if (!searcher.addResult(pojo))
+                    return;
             }
         }
-
-        return results;
-    }
-
-    public Pojo findById(String id) {
-        for (Pojo pojo : pojos) {
-            if (pojo.id.equals(id)) {
-                pojo.displayName = pojo.name;
-                return pojo;
-            }
-        }
-
-        return null;
-    }
-
-    public Pojo findByName(String name) {
-        for (Pojo pojo : pojos) {
-            if (pojo.name.equals(name))
-                return pojo;
-        }
-        return null;
     }
 
     /**
@@ -150,10 +145,10 @@ public class ContactsProvider extends Provider<ContactsPojo> {
      * @return a contactpojo, or null.
      */
     public ContactsPojo findByPhone(String phoneNumber) {
-        String simplifiedPhoneNumber = PhoneNormalizer.simplifyPhoneNumber(phoneNumber);
+        StringNormalizer.Result simplifiedPhoneNumber = PhoneNormalizer.simplifyPhoneNumber(phoneNumber);
 
-        for (ContactsPojo pojo : pojos) {
-            if (pojo.phoneSimplified.equals(simplifiedPhoneNumber)) {
+        for (ContactsPojo pojo : getPojos()) {
+            if (pojo.normalizedPhone != null && pojo.normalizedPhone.equals(simplifiedPhoneNumber)) {
                 return pojo;
             }
         }
